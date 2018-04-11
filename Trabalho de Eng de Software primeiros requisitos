@@ -1,0 +1,42 @@
+Documento de requisitos(protótipo)
+
+
+(pessoal, essa é só uma ideia, se vcs tiverem outra ideia deixem anotado aqui até o dia 15, de preferência)
+Nome do jogo: Show dos MilhõES
+
+Descrição: Jogo de celular/Browser no qual o usuário é um participante de um programa de
+perguntas e respostas sobre Engenharia de Software.
+
+Requisitos funcionais
+
+1- O sistema, no menu principal, deve permitir que o usuário inicie o jogo.
+
+2- O sistema, no menu principal, deve permitir que o usuário visualize as instruções do Jogo
+
+3- O sistema, no menu principal, deve permitir que o usuário desligue o jogo.
+
+4- O sistema, no menu principal, deve permitir que o usuário veja os créditos do jogo.
+
+5- O sistema, durante o jogo, deve permitir que o usuário pause o jogo.
+
+6- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário volte ao menu principal.
+
+7- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário veja as instruções do jogo.
+
+8- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário desligue o jogo.
+
+
+Requisitos não funcionais
+
+1- O sistema será feito em Java, com a framework libGDX, utilizando o Android Studio/ O sistema será feito em Javascript
+(Pessoal, isso aqui é só uma sugestão, se vcs tiverem outra ideia de plataforma de desenvolvimento deixem aqui).
+
+2- A parte gráfica do jogo será feita com auxílio dos softwares Piskel, Tiled e Texture Packer(mais uma vez, isso é só uma
+sugestão, se tiverem outra ideia deixem anotado aqui).
+
+3- O jogo será jogado em plataformas móveis/em browsers da internet(mais uma vez, se escolhermos fazer na libGDX o jogo
+será de celular, se fizermos em Javascript será jogado na internet, mas repito novamente, se tiverem mais ideias(por favor, tenham) deixme anotado aqui)
+
+
+
+Só anotei aqui no atom pq n tive tempo de procurar o Software de levantamento de requisitos. Quando encontrarmos esse software aposentaremos o Atom.
