@@ -9,21 +9,41 @@ perguntas e respostas sobre Engenharia de Software.
 
 Requisitos funcionais
 
-1- O sistema, no menu principal, deve permitir que o usuÃ¡rio inicie o jogo.
+1- O sistema, no menu principal, deve permitir que o usuário inicie o jogo.
 
-2- O sistema, no menu principal, deve permitir que o usuÃ¡rio visualize as instruÃ§Ãµes do Jogo
+2- O sistema, no menu principal, deve permitir que o usuário visualize as instruções do Jogo
 
-3- O sistema, no menu principal, deve permitir que o usuÃ¡rio desligue o jogo.
+3- O sistema, no menu principal, deve permitir que o usuário desligue o jogo.
 
-4- O sistema, no menu principal, deve permitir que o usuÃ¡rio veja os crÃ©ditos do jogo.
+4- O sistema, no menu principal, deve permitir que o usuÃ¡rio veja os créditos do jogo.
 
-5- O sistema, durante o jogo, deve permitir que o usuÃ¡rio pause o jogo.
+5- O sistema, durante o jogo, deve permitir que o usuário pause o jogo.
 
 6- O sistema, enquanto o jogo esta pausado, deve permitir que o usuÃ¡rio volte ao menu principal.
 
-7- O sistema, enquanto o jogo esta pausado, deve permitir que o usuÃ¡rio veja as instruÃ§Ãµes do jogo.
+7- O sistema, enquanto o jogo esta pausado, deve permitir que o usuÃ¡rio veja as instruções do jogo.
 
-8- O sistema, enquanto o jogo esta pausado, deve permitir que o usuÃ¡rio desligue o jogo.
+8- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário desligue o jogo.
+
+9- O sistema, durante o jogo, permite que o jogador escolha jogar uma das opções "descubra a palavra", "gira a roleta" e "qual é a metodologia?". 
+
+10- O sistema, durante o jogo, nos modos "descubra a palavra", "gira a roleta" e "qual é a metodologia?" permite que o jogador afirme estar preparado.
+
+11- O sistema, durante o jogo, nos modos "descubra a palavra", "gira a roleta" e "qual é a metodologia?" permite que o jogador selecione uma das opções "ajuda dos universitários", "ajuda de um amigo" e "eliminar duas opções", cada uma apenas uma vez por partida.
+
+11- O sistema, durante o jogo, no modo "descubra a palavra", permite que o jogador selecione letras para completar a palavra chave apresentada.
+
+12- O sistema, durante o jogo, no modo "descubra a palavra", permite que o jogador selecione a opção "eu sei qual é a palavra", que permite o jogador digitar a palavra chave.
+
+13- O sistema, durante o jogo, no modo "gira a roleta", permite que o jogador gire a roleta de perguntas para poder responder uma das perguntas das categorias História da Engenharia de Software, Ciclos de Vida, Gerenciamento de Projetos, Planejamento de desenvolvimento de software, métricas de software, gerenciamento de riscos, engenharia de requisitos, Análise e projeto de sistemas.
+
+14- O sistema, durante o jogo, no modo "gira a roleta", após girar a roleta, permite que o jogador selecione uma das opções que a pergunta fornece.
+
+15- O sistema, durante o jogo, no modo "gira a roleta",  permite que o jogador confirme sua resposta com o botão "confirmar resposta".
+
+16- O sistema, duerante o jogo, permite que o jogador interaja com o Silvio SantES, fazendo-o mostrar uma careta.
+
+
 
 
 Requisitos nÃ£o funcionais
@@ -39,4 +59,5 @@ serÃ¡ de celular, se fizermos em Javascript serÃ¡ jogado na internet, mas repito
 
 
 
-SÃ³ anotei aqui no atom pq n tive tempo de procurar o Software de levantamento de requisitos. Quando encontrarmos esse software aposentaremos o Atom.
+
+SÃ³ anotei aqui no atom pq n tive tempo de procurar o Software de levantamento de requisitos. Quando encontrarmos esse software, aposentaremos o Atom.
