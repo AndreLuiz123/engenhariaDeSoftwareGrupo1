@@ -52,6 +52,7 @@ ao escolher o ás, elimina uma alternativa incorreta, ao escolher o dois, elimin
 
 21 - O sistema, durante o jogo, contará com um sistema de premiação através da quantidade de dinheiro que o participante irá ganhar ao completar todas as perguntas (1 milhão de reais) e também com a quantidade de dinheiro que o participante pode ganhar se desejar abandonar o jogo (Uma sugestão seria 20% do valor da pergunta).
 
+22 - O sistema, no menu principal, deve permitir que o usuário tenha acesso ao ranking do jogo, mostrando o apelido dos jogadores que fizeram mais dinheiro, divido pelos modos de jogo.
 Requisitos nÃ£o funcionais
 
 1- O sistema serÃ¡ feito em Java, com a framework libGDX, utilizando o Android Studio/ O sistema serÃ¡ feito em Javascript
