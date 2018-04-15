@@ -1,63 +1,71 @@
-Documento de requisitos(protótipo)
+Documento de requisitos(protÃ³tipo)
 
 
-(pessoal, essa é só uma ideia, se vcs tiverem outra ideia deixem anotado aqui até o dia 15, de preferência)
-Nome do jogo: Show dos MilhõES
+(pessoal, essa Ã© sÃ³ uma ideia, se vcs tiverem outra ideia deixem anotado aqui atÃ© o dia 15, de preferÃªncia)
+Nome do jogo: Show dos MilhÃµES
 
-Descrição: Jogo de celular/Browser no qual o usuário é um participante de um programa de
+DescriÃ§Ã£o: Jogo de celular/Browser no qual o usuÃ¡rio Ã© um participante de um programa de
 perguntas e respostas sobre Engenharia de Software.
 
 Requisitos funcionais
 
-1- O sistema, no menu principal, deve permitir que o usu�rio inicie o jogo.
+1- O sistema, no menu principal, deve permitir que o usuário inicie o jogo.
 
-2- O sistema, no menu principal, deve permitir que o usu�rio visualize as instru��es do Jogo
+2- O sistema, no menu principal, deve permitir que o usuário visualize as instruções do Jogo
 
-3- O sistema, no menu principal, deve permitir que o usu�rio desligue o jogo.
+3- O sistema, no menu principal, deve permitir que o usuário desligue o jogo.
 
-4- O sistema, no menu principal, deve permitir que o usuário veja os cr�ditos do jogo.
+4- O sistema, no menu principal, deve permitir que o usuÃ¡rio veja os créditos do jogo.
 
-5- O sistema, durante o jogo, deve permitir que o usu�rio pause o jogo.
+5- O sistema, durante o jogo, deve permitir que o usuário pause o jogo.
 
-6- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário volte ao menu principal.
+6- O sistema, enquanto o jogo esta pausado, deve permitir que o usuÃ¡rio volte ao menu principal.
 
-7- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário veja as instru��es do jogo.
+7- O sistema, enquanto o jogo esta pausado, deve permitir que o usuÃ¡rio veja as instruções do jogo.
 
-8- O sistema, enquanto o jogo esta pausado, deve permitir que o usu�rio desligue o jogo.
+8- O sistema, enquanto o jogo esta pausado, deve permitir que o usuário desligue o jogo.
 
-9- O sistema, durante o jogo, permite que o jogador escolha jogar uma das op��es "descubra a palavra", "gira a roleta" e "qual � a metodologia?". 
+9- O sistema, durante o jogo, permite que o jogador escolha jogar uma das opções "descubra a palavra", "gira a roleta" e "qual é a metodologia?". 
 
-10- O sistema, durante o jogo, nos modos "descubra a palavra", "gira a roleta" e "qual � a metodologia?" permite que o jogador afirme estar preparado.
+10- O sistema, durante o jogo, nos modos "descubra a palavra", "gira a roleta" e "qual é a metodologia?" permite que o jogador afirme estar preparado.
 
-11- O sistema, durante o jogo, nos modos "descubra a palavra", "gira a roleta" e "qual � a metodologia?" permite que o jogador selecione uma das op��es "ajuda dos universit�rios", "ajuda de um amigo" e "eliminar duas op��es", cada uma apenas uma vez por partida.
+11- O sistema, durante o jogo, nos modos "descubra a palavra", "gira a roleta" e "qual é a metodologia?" permite que o jogador selecione uma das opções "ajuda dos universitários", "passar a pergunta" e "eliminar um número aleatório de 1-3 opções", cada uma apenas uma vez por partida.
 
-11- O sistema, durante o jogo, no modo "descubra a palavra", permite que o jogador selecione letras para completar a palavra chave apresentada.
+12- O sistema, durante o jogo, no modo "descubra a palavra", permite que o jogador selecione letras para completar a palavra chave apresentada.
 
-12- O sistema, durante o jogo, no modo "descubra a palavra", permite que o jogador selecione a op��o "eu sei qual � a palavra", que permite o jogador digitar a palavra chave.
+13- O sistema, durante o jogo, no modo "descubra a palavra", permite que o jogador selecione a opção "eu sei qual é a palavra", que permite o jogador digitar a palavra chave.
 
-13- O sistema, durante o jogo, no modo "gira a roleta", permite que o jogador gire a roleta de perguntas para poder responder uma das perguntas das categorias Hist�ria da Engenharia de Software, Ciclos de Vida, Gerenciamento de Projetos, Planejamento de desenvolvimento de software, m�tricas de software, gerenciamento de riscos, engenharia de requisitos, An�lise e projeto de sistemas.
+14- O sistema, durante o jogo, no modo "gira a roleta", permite que o jogador gire a roleta de perguntas para poder responder uma das perguntas das categorias História da Engenharia de Software, Ciclos de Vida, Gerenciamento de Projetos, Planejamento de desenvolvimento de software, métricas de software, gerenciamento de riscos, engenharia de requisitos, Análise e projeto de sistemas.
 
-14- O sistema, durante o jogo, no modo "gira a roleta", ap�s girar a roleta, permite que o jogador selecione uma das op��es que a pergunta fornece.
+15- O sistema, durante o jogo, no modo "gira a roleta", após girar a roleta, permite que o jogador selecione uma das opções que a pergunta fornece.
 
-15- O sistema, durante o jogo, no modo "gira a roleta",  permite que o jogador confirme sua resposta com o bot�o "confirmar resposta".
+16- O sistema, durante o jogo, no modo "gira a roleta",  permite que o jogador confirme sua resposta com o botão "confirmar resposta".
 
-16- O sistema, duerante o jogo, permite que o jogador interaja com o Silvio SantES, fazendo-o mostrar uma careta.
+17- O sistema, duerante o jogo, permite que o jogador interaja com o Silvio SantES, fazendo-o mostrar uma careta.
+
+18- Ao escolher a opção "ajuda dos universitários", mostra ao jogador a porcetagem de "universitários" que acham cada uma das alternativas corretas. Também impossibilita o jogador de usar essa opção outra vez durante o modo.
+
+19- Ao escolher a opção "passar pergunta", troca a pergunta mostrada na tela ao jogador. Também impossibilita o jogador de usar essa opção outra vez durante o modo.
+
+20 - Ao escolher a opção "Eliminar alternativas", Aparece para o jogador com uma tela com 3 cartas viradas para baixo (um ás, um dois e um três), ajeitadas aleatoriamente, para o jogador escolher,
+ao escolher o ás, elimina uma alternativa incorreta, ao escolher o dois, elimina duas e ao escolher o 3 elimina todas as alternativas incorretas, deixando somente a correta. Também impossibilita o jogador de usar essa opção outra vez durante o modo.
+
+21 - O sistema, durante o jogo, contará com um sistema de premiação através da quantidade de dinheiro que o participante irá ganhar ao completar todas as perguntas (1 milhão de reais) e também com a quantidade de dinheiro que o participante pode ganhar se desejar abandonar o jogo (Uma sugestão seria 20% do valor da pergunta).
+
+Requisitos nÃ£o funcionais
+
+1- O sistema serÃ¡ feito em Java, com a framework libGDX, utilizando o Android Studio/ O sistema serÃ¡ feito em Javascript
+(Pessoal, isso aqui Ã© sÃ³ uma sugestÃ£o, se vcs tiverem outra ideia de plataforma de desenvolvimento deixem aqui).
+
+2- A parte grÃ¡fica do jogo serÃ¡ feita com auxÃ­lio dos softwares Piskel, Tiled e Texture Packer(mais uma vez, isso Ã© sÃ³ uma
+sugestÃ£o, se tiverem outra ideia deixem anotado aqui).
+
+3- O jogo serÃ¡ jogado em plataformas mÃ³veis/em browsers da internet(mais uma vez, se escolhermos fazer na libGDX o jogo
+serÃ¡ de celular, se fizermos em Javascript serÃ¡ jogado na internet, mas repito novamente, se tiverem mais ideias(por favor, tenham) deixme anotado aqui).
+
+4 - O jogo deverá rodar nos browsers: "Internet Explorer", "Mozila Firefox", "Google Chrome" e "Safari".
 
 
 
 
-Requisitos não funcionais
-
-1- O sistema será feito em Java, com a framework libGDX, utilizando o Android Studio/ O sistema será feito em Javascript
-(Pessoal, isso aqui é só uma sugestão, se vcs tiverem outra ideia de plataforma de desenvolvimento deixem aqui).
-
-2- A parte gráfica do jogo será feita com auxílio dos softwares Piskel, Tiled e Texture Packer(mais uma vez, isso é só uma
-sugestão, se tiverem outra ideia deixem anotado aqui).
-
-3- O jogo será jogado em plataformas móveis/em browsers da internet(mais uma vez, se escolhermos fazer na libGDX o jogo
-será de celular, se fizermos em Javascript será jogado na internet, mas repito novamente, se tiverem mais ideias(por favor, tenham) deixme anotado aqui)
-
-
-
-
-Só anotei aqui no atom pq n tive tempo de procurar o Software de levantamento de requisitos. Quando encontrarmos esse software, aposentaremos o Atom.
+SÃ³ anotei aqui no atom pq n tive tempo de procurar o Software de levantamento de requisitos. Quando encontrarmos esse software, aposentaremos o Atom.
