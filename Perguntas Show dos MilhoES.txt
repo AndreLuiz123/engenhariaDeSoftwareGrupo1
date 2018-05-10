@@ -1,0 +1,76 @@
+As alternativas corretas estão com um 'v' na frente:
+
+Levantamento de Dados:
+1- Qual dessas não é uma técnica de levantamento de dados?
+
+a)Observação Pessoal
+b)Entrevista
+c)Seminário
+d)Conversa Casual v 
+
+2- Qual dessas não é uma vantagem do uso de questionários?
+
+a)Agilidade no processo
+b)Aplicação fácil
+c)Uniformidade na mensuração
+d)Obtenção de informação detalhada v 
+
+3- Qual dessas alternativas é uma vantagem da Observação Pessoal?
+
+a)Oferece evidências formais
+b)Não exige disponibilidade de tempo do cliente v
+c)Aplicado à um alto numero de pessoas
+d)Uniformidade na mensuração
+
+Ferramentas Case:
+4- Qual dessas ferramentas CASE é indicada para Gerência de Projetos?
+
+a)CVS
+b)Git
+c)Google Code
+d)Oracle
+
+5- Qual dessas ferramentas CASE não é uma ferramenta de Edição?
+
+a)Microsoft Word
+b)Git v 
+c)Wiki
+d)Star UML
+
+6- Qual dessas alternativas é uma desvantagem no uso de ferramentas CASE?
+
+a)Incompatibilidade de ferramentas v 
+b)Falta de qualidade no produto final
+c)Maior quantidade de códigos de programação
+d)Maior gasto de tempo
+
+7- Qual dessas ferramentas CASE não é uma ferramenta de banco de dados?
+
+a)Oracle
+b)MySQL
+c)Xplanner v 
+d)Postgres
+
+Diagramas UML
+
+8- Qual dessas alternativas não configura um Diagrama estrutural UML?
+
+a) Diagrama de classes
+b) Diagrama de código v 
+c) Diagrama de sequência
+d) Diagrama de caso de uso
+
+9- O Diagrama da UML que representa o comportamento interno de determinado objeto,
+subsistema ou sistema global denomina-se diagrama de?
+
+a)estado
+b)sequência
+c)classe v 
+d)caso de uso
+
+10-Qual dessas alternativas apresenta um exemplo de diagrama de estruturas da UML?
+
+a)Diagrama de implantação
+b)Diagrama de atividades
+c)Diagrama de caso de uso v 
+d)Diagrama de sequência
