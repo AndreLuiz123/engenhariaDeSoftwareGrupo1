@@ -51,7 +51,7 @@ public class Menu implements Screen {
         if(Gdx.input.justTouched() && Gdx.input.getX()>(float)0.4*MyGdxGame.PPM && Gdx.input.getX()<((float)0.3*MyGdxGame.PPM + 180)
              && Gdx.input.getY()>(float)1.7*MyGdxGame.PPM  && Gdx.input.getY()<(float)2.5*MyGdxGame.PPM
                 ){
-        System.out.println("Deu certo");
+            game.setScreen(new SelecaoDePersonagemModo(game));
         }
 
         if(Gdx.input.justTouched() && Gdx.input.getX()>(float)0.4*MyGdxGame.PPM && Gdx.input.getX()<((float)0.3*MyGdxGame.PPM + 180)
