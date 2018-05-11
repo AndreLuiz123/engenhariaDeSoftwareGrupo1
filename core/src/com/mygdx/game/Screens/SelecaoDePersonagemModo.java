@@ -47,7 +47,7 @@ public class SelecaoDePersonagemModo implements Screen {
         if(Gdx.input.justTouched() && Gdx.input.getX()>(float)0.4*MyGdxGame.PPM && Gdx.input.getX()<((float)0.3*MyGdxGame.PPM + 180)
                 && Gdx.input.getY()>(float)1.3*MyGdxGame.PPM  && Gdx.input.getY()<(float)2.5*MyGdxGame.PPM
                 ){
-            System.out.println("Deu certo");
+            game.setScreen(new GiraRoleta(game));
         }
 
     }

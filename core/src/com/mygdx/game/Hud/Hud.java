@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.BancoDeDados.Pergunta;
 import com.mygdx.game.MyGdxGame;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Hud implements Disposable {
 
     public Stage stage;
     private Viewport viewport;
-    private Label teste;
+    private Label letraA, letraB, letraC,letraD, pergunta;
     public Image logo, backgroundMenu, silvioSantos, jogarOption, instrucaoOption, creditosOption;
     public Image backgroundSelecao, suporte, suporte2, modoGiraRoletaOption, modoDescubraPalavraOption, seta;
     private Table table;
@@ -40,8 +41,11 @@ public class Hud implements Disposable {
 
         stage = new Stage(viewport, sb);
 
-
-
+         pergunta= new Label(String.format(" "),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+         letraA= new Label(String.format(" "),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        letraB= new Label(String.format(" "),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        letraC= new Label(String.format(" "),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        letraD= new Label(String.format(" "),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         logo = new Image(new Texture(Gdx.files.absolute("Sem título.png")));
         backgroundMenu = new Image(new Texture(Gdx.files.absolute("BackGroundMenu.png")));
@@ -118,6 +122,34 @@ public class Hud implements Disposable {
         table.add(suporte2);
 
     }
+
+
+
+
+    public void modoGiraRoleta(Pergunta pergunta){
+
+        this.pergunta.setText(pergunta.getPergunta());
+        this.letraA.setText("a)"+pergunta.getLetraA());
+        this.letraB.setText("b)"+pergunta.getLetraB());
+        this.letraC.setText("c)"+pergunta.getLetraC());
+        this.letraD.setText("d)"+pergunta.getLetraD());
+
+        table.clear();
+        table.add(this.pergunta).top().expandX();
+        table.row();
+        table.add(this.letraA).left();
+        table.row();
+        table.add(this.letraB).left();
+        table.row();
+        table.add(this.letraC).left();
+        table.row();
+        table.add(this.letraD).left();
+
+    }
+
+
+
+
 
 
 
