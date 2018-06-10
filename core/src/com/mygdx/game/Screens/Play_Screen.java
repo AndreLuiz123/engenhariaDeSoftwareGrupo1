@@ -1,12 +1,13 @@
 package com.mygdx.game.Screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
 
 
 public class Play_Screen implements Screen{
 
-    Play_Screen(){
+    public Play_Screen(Game game){
 
 
 
