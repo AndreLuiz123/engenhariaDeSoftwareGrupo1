@@ -1,6 +1,6 @@
 package com.mygdx.game.Screens;
 
-import com.badlogic.gdx.Game;
+import com.mygdx.game.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -107,6 +107,7 @@ public class Menu implements Screen {
         if(trocaFase == true) {
             game.setScreen(new Play_Screen(game));
             dispose();
+            trocaFase=false;
         }
     }
 
