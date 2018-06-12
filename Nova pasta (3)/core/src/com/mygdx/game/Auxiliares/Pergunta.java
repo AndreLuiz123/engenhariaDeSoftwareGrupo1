@@ -8,15 +8,11 @@ public class Pergunta {
     String altd;
 
     String texto;
-    int categoria;
-    //Categorias:
-    //0 = levantamento de dados, 1 = ferramentas case, 2 = diagramas uml, 3 = qualidade de software
-    //4 = gerência de projetos, 5 = outro
 
     int altcorreta; // 0 = a, 1 = b, 2 = c, 3 = d
 
 
-    Pergunta(String texto, String alta, String altb, String altc, String altd, int altcorreta, int categoria){
+    Pergunta(String texto, String alta, String altb, String altc, String altd, int altcorreta){
         this.texto = texto;
 
         this.alta = alta;
