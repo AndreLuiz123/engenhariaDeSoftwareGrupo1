@@ -43,9 +43,12 @@ public class Pergunta {
     public String getAltc(){
         return this.altc;
     }
-    
+
     public String getAltd(){
         return this.altd;
     }
 
+    public String getTexto() {
+        return texto;
+    }
 }
