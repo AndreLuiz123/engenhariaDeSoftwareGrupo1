@@ -51,38 +51,37 @@ public class GerenciadorPerguntas {
     public Pergunta geraPergunta0(){
         if(perguntascat0.size()>0) {
             al = random.nextInt(perguntascat0.size());
-            return perguntascat0[al];
+            return perguntascat0.get(al);
         }
-        return NULL;
+        return null;
     }
 
     public Pergunta geraPergunta1(){
         if(perguntascat1.size()>0) {
             al = random.nextInt(perguntascat1.size());
-            return perguntascat1[al];
+            return perguntascat1.get(al);
         }
-        return NULL;
+        return null;
     }
     public Pergunta geraPergunta2(){
         if(perguntascat2.size()>0) {
             al = random.nextInt(perguntascat2.size());
-            return perguntascat2[al];
+            return perguntascat2.get(al);
         }
-        return NULL;
+        return null;
     }
     public Pergunta geraPergunta3(){
         if(perguntascat3.size()>0) {
             al = random.nextInt(perguntascat3.size());
-            return perguntascat3[al];
+            return perguntascat3.get(al);
         }
-        return NULL;
+        return null;
     }
     public Pergunta geraPergunta4(){
         if(perguntascat4.size()>0) {
             al = random.nextInt(perguntascat4.size());
-            return perguntascat4[al];
+            return perguntascat4.get(al);
         }
-        return NULL;
+        return null;
     }
-
 }
