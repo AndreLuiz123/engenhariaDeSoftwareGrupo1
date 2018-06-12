@@ -81,6 +81,30 @@ public class MenuScreen implements Screen {
             }
         });
 
+        private void fecharApp() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+            builder.setMessage("Você deseja fechar o aplicativo?");
+            builder.setCancelable(true);
+            builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    System.exit(0);
+
+                }
+            });
+            builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
+
+        }
+
         Button sair = new TextButton("Sair",skin,"small");
         sair.setSize(100,50);
         sair.setPosition(((Gdx.graphics.getWidth()/2)-sair.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-130));
