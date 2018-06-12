@@ -2,9 +2,11 @@ package com.mygdx.game.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -12,11 +14,15 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.mygdx.game.Auxiliares.GerenciadorPerguntas;
 import com.mygdx.game.Auxiliares.Pergunta;
 import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
+
+import java.util.ArrayList;
 
 /**
  * Created by Andre Luiz on 10/06/2018.
@@ -40,6 +46,9 @@ public class PlayScreen  implements Screen {
     private boolean girando;
     private float var;
 
+    private GerenciadorPerguntas gerPerg;
+
+    Label pergunta, optA,optB,optC,optD;
 
     PlayScreen(MyGdxGame game){
 
@@ -57,6 +66,10 @@ public class PlayScreen  implements Screen {
         //BOTOES
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stage = new Stage();
+
+        //Modo Gira Roleta
+        gerPerg = new GerenciadorPerguntas();
+
 
         this.background = new Texture("BackgroundSelecaoDePersonagens.png");
 
@@ -199,7 +212,7 @@ public class PlayScreen  implements Screen {
         world.step(1f/60f, 6,2);
         System.out.println(roleta.b2body.getAngularVelocity());
 
-       
+
 
 
 
@@ -214,6 +227,25 @@ public class PlayScreen  implements Screen {
                 modo=3;
             }
         }
+
+        if (modo == 3) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
 
     }
 
@@ -365,11 +397,28 @@ public class PlayScreen  implements Screen {
             }
         });
 
+
+        pergunta = new Label(String.format(gerPerg.geraPergunta0().getTexto()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        pergunta.setPosition(0,((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/3)));
+        optA = new Label(String.format(gerPerg.geraPergunta0().getAlta()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        optA.setPosition(opA.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5)));
+        optB = new Label(String.format(gerPerg.geraPergunta0().getAltb()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        optB.setPosition(opB.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5))-opB.getHeight());
+        optC = new Label(String.format(gerPerg.geraPergunta0().getAltc()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        optC.setPosition(opC.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5))- opC.getHeight()*2);
+        optD = new Label(String.format(gerPerg.geraPergunta0().getAltd()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        optD.setPosition(opD.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5))-opD.getHeight()*3);
+
         stage.addActor(giraRoleta);
         stage.addActor(opA);
         stage.addActor(opB);
         stage.addActor(opC);
         stage.addActor(opD);
+        stage.addActor(pergunta);
+        stage.addActor(optA);
+        stage.addActor(optB);
+        stage.addActor(optC);
+        stage.addActor(optD);
 
     }
 

@@ -13,7 +13,7 @@ public class GerenciadorPerguntas {
     Random random;
     int al;
 
-    GerenciadorPerguntas() {
+    public GerenciadorPerguntas() {
         perguntascat0 = new ArrayList<Pergunta>();
         perguntascat1 = new ArrayList<Pergunta>();
         perguntascat2 = new ArrayList<Pergunta>();
@@ -88,8 +88,6 @@ public class GerenciadorPerguntas {
         return null;
     }
 
-<<<<<<< HEAD
-=======
     public Pergunta pulaPergunta(int categoria){
         switch (categoria){
             case 0:
@@ -106,6 +104,5 @@ public class GerenciadorPerguntas {
 
         }
     }
->>>>>>> Matheus
 
 }

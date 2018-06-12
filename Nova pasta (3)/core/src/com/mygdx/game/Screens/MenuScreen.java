@@ -175,7 +175,7 @@ public class MenuScreen implements Screen {
                 "minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " +
                 "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit " +
                 "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " +
-                "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",skin,"big");
+                "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",skin,"small");
         texto.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
         texto.setPosition(Gdx.graphics.getWidth()/2 - texto.getWidth()/1.3f,Gdx.graphics.getHeight()/2);
 
