@@ -14,7 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+<<<<<<< HEAD
 import com.badlogic.gdx.utils.viewport.Viewport;
+=======
+>>>>>>> Matheus
 import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
 
@@ -40,17 +43,24 @@ public class PlayScreen  implements Screen {
     private boolean girando;
     private float var;
 
+<<<<<<< HEAD
     private Viewport gamePort;
 
+=======
+>>>>>>> Matheus
     PlayScreen(MyGdxGame game){
 
         this.game = game;
 
         girando=false;
 
+<<<<<<< HEAD
 
 
         //gameCam = new OrthographicCamera();
+=======
+        gameCam = new OrthographicCamera();
+>>>>>>> Matheus
         //BOX2D
         world = new World(new Vector2(0,0),true);
         b2dr = new Box2DDebugRenderer();
@@ -58,7 +68,10 @@ public class PlayScreen  implements Screen {
 
 
         //BOTOES
+<<<<<<< HEAD
 
+=======
+>>>>>>> Matheus
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stage = new Stage();
 
@@ -201,26 +214,40 @@ public class PlayScreen  implements Screen {
     }
 
     public void update(float delta){
+<<<<<<< HEAD
 
+=======
+>>>>>>> Matheus
         world.step(1f/60f, 6,2);
         System.out.println(roleta.b2body.getAngularVelocity());
 
         if(girando){
 
+<<<<<<< HEAD
           var = delta;
+=======
+            var = delta;
+>>>>>>> Matheus
             girando = false;
         }
 
         var = var - delta;
 
         if(var - delta < -5){
+<<<<<<< HEAD
             roleta.giraRoleta(0);
         }
 
       //  roleta.giraRoleta(1);
+=======
+            roleta.giraRoleta(0,0);
+        }
+
+        //  roleta.giraRoleta(1);
+>>>>>>> Matheus
 
         if(modo == 2){
-           disposeSelecaoPersonagem();
+            disposeSelecaoPersonagem();
             montaModoGiraRoleta();
             modo=4;
         }else{
@@ -241,9 +268,13 @@ public class PlayScreen  implements Screen {
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             game.batch.begin();
+<<<<<<< HEAD
 
             game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
 
+=======
+            game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+>>>>>>> Matheus
             game.batch.end();
 
             stage.act();
@@ -265,7 +296,11 @@ public class PlayScreen  implements Screen {
         }
 
 
+<<<<<<< HEAD
        // b2dr.render(world,gameCam.combined);
+=======
+        b2dr.render(world,gameCam.combined);
+>>>>>>> Matheus
 
 
 
@@ -307,9 +342,14 @@ public class PlayScreen  implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+<<<<<<< HEAD
 
                 girando=true;
                 roleta.giraRoleta(5);
+=======
+                girando=true;
+                roleta.giraRoleta(15,1);
+>>>>>>> Matheus
                 return super.touchDown(event, x, y, pointer, button);
             }
 

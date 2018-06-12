@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GerenciadorPerguntas {
-    public ArrayList<Pergunta> perguntascat0; //Perguntas de levantamento de dados
-    public ArrayList<Pergunta> perguntascat1; //Perguntas de ferramentas case
-    public ArrayList<Pergunta> perguntascat2; //Perguntas de diagramas uml
-    public ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
-    public ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
+    private ArrayList<Pergunta> perguntascat0; //Perguntas de levantamento de dados
+    private ArrayList<Pergunta> perguntascat1; //Perguntas de ferramentas case
+    private ArrayList<Pergunta> perguntascat2; //Perguntas de diagramas uml
+    private ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
+    private ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
 
     Random random;
     int al;
@@ -84,4 +84,9 @@ public class GerenciadorPerguntas {
         }
         return null;
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> Matheus
