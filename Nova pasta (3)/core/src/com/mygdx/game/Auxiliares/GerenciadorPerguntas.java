@@ -47,6 +47,7 @@ public class GerenciadorPerguntas {
                 "Diagrama de atividades", "Diagrama de caso de uso", "Diagrama de sequencia", 2));
     }
 
+
     public Pergunta geraPergunta0(){
         if(perguntascat0.size()>0) {
             al = random.nextInt(perguntascat0.size());
