@@ -2,6 +2,7 @@ package com.mygdx.game.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -24,9 +25,12 @@ public class MenuScreen implements Screen {
     boolean trocaFase = false;
     boolean credits = false;
     boolean menu = false;
+    Sound sound = Gdx.audio.newSound(Gdx.files.internal("musica/force.mp3"));
 
     public MenuScreen(MyGdxGame game){
         this.game = game;
+        sound.play(1.0f);
+        sound.setLooping(500,true);
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stageMenu();
