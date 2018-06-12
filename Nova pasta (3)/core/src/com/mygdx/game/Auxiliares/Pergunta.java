@@ -32,4 +32,20 @@ public class Pergunta {
             return false;
     }
 
+    public String getAlta(){
+        return this.alta;
+    }
+
+    public String getAltb(){
+        return this.altb;
+    }
+
+    public String getAltc(){
+        return this.altc;
+    }
+    
+    public String getAltd(){
+        return this.altd;
+    }
+
 }
