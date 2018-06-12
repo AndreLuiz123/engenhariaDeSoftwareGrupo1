@@ -1,5 +1,6 @@
 package com.mygdx.game.Auxiliares;
 
+<<<<<<< HEAD
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -13,6 +14,9 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.Screens.PlayScreen;
+=======
+import com.badlogic.gdx.graphics.g2d.Sprite;
+>>>>>>> Matheus
 
 /**
  * Created by Andre Luiz on 11/06/2018.
@@ -20,6 +24,7 @@ import com.mygdx.game.Screens.PlayScreen;
 
 public class Roleta extends Sprite {
 
+<<<<<<< HEAD
 
 
     public World world;
@@ -59,6 +64,15 @@ public class Roleta extends Sprite {
 
         b2body.setAngularVelocity(angularVelocity);
 
+=======
+    Roleta(){
+
+
+
+
+
+
+>>>>>>> Matheus
     }
 
 

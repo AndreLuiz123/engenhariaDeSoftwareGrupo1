@@ -3,18 +3,25 @@ package com.mygdx.game.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+<<<<<<< HEAD
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+=======
+import com.badlogic.gdx.graphics.Texture;
+>>>>>>> Matheus
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+<<<<<<< HEAD
 import com.mygdx.game.Auxiliares.Roleta;
+=======
+>>>>>>> Matheus
 import com.mygdx.game.MyGdxGame;
 
 /**
@@ -23,6 +30,7 @@ import com.mygdx.game.MyGdxGame;
 
 public class PlayScreen  implements Screen {
 
+<<<<<<< HEAD
     private MyGdxGame game;
     private Texture background;
     private Skin skin;
@@ -39,10 +47,20 @@ public class PlayScreen  implements Screen {
     private boolean girando;
     private float var;
 
+=======
+    MyGdxGame game;
+    Texture background;
+    Skin skin;
+    Stage stage;
+
+    private int personagem, modo;
+
+>>>>>>> Matheus
     PlayScreen(MyGdxGame game){
 
         this.game = game;
 
+<<<<<<< HEAD
         girando=false;
 
         gameCam = new OrthographicCamera();
@@ -53,6 +71,8 @@ public class PlayScreen  implements Screen {
 
 
         //BOTOES
+=======
+>>>>>>> Matheus
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stage = new Stage();
 
@@ -194,6 +214,7 @@ public class PlayScreen  implements Screen {
     }
 
     public void update(float delta){
+<<<<<<< HEAD
         world.step(1f/60f, 6,2);
         System.out.println(roleta.b2body.getAngularVelocity());
 
@@ -211,6 +232,9 @@ public class PlayScreen  implements Screen {
 
       //  roleta.giraRoleta(1);
 
+=======
+        System.out.println(personagem);
+>>>>>>> Matheus
         if(modo == 2){
            disposeSelecaoPersonagem();
             montaModoGiraRoleta();
@@ -233,7 +257,11 @@ public class PlayScreen  implements Screen {
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             game.batch.begin();
+<<<<<<< HEAD
             game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+=======
+            game.batch.draw(background,0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+>>>>>>> Matheus
             game.batch.end();
 
             stage.act();
@@ -255,8 +283,11 @@ public class PlayScreen  implements Screen {
         }
 
 
+<<<<<<< HEAD
         b2dr.render(world,gameCam.combined);
 
+=======
+>>>>>>> Matheus
 
 
     }
@@ -296,8 +327,12 @@ public class PlayScreen  implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+<<<<<<< HEAD
                 girando=true;
                 roleta.giraRoleta(5);
+=======
+                personagem = 5;
+>>>>>>> Matheus
                 return super.touchDown(event, x, y, pointer, button);
             }
 

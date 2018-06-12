@@ -106,7 +106,10 @@ public class MenuScreen implements Screen {
     }
 
     public void update(float delta) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> Matheus
         if(trocaFase == true) {
             game.setScreen(new PlayScreen(game));
             dispose();
