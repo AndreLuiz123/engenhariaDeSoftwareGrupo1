@@ -193,7 +193,11 @@ public class PlayScreen  implements Screen {
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             game.batch.begin();
+<<<<<<< HEAD
             game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+=======
+            game.batch.draw(background,0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+>>>>>>> 5e7da2a4ee2060311043bd0575454238c1e06dd9
             game.batch.end();
 
             stage.act();
