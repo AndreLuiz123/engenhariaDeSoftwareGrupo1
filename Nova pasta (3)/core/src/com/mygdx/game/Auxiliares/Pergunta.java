@@ -2,14 +2,14 @@ package com.mygdx.game.Auxiliares;
 
 public class Pergunta {
 
-    String alta;
-    String altb;
-    String altc;
-    String altd;
+    private String alta;
+    private String altb;
+    private String altc;
+    private String altd;
 
-    String texto;
+    private String texto;
 
-    int altcorreta; // 0 = a, 1 = b, 2 = c, 3 = d
+    private int altcorreta; // 0 = a, 1 = b, 2 = c, 3 = d
 
 
     Pergunta(String texto, String alta, String altb, String altc, String altd, int altcorreta){
@@ -25,4 +25,30 @@ public class Pergunta {
 
     }
 
+    public boolean eRespostaCorreta(int resp){
+        if(resp == this.altcorreta){
+            return true;
+        }else
+            return false;
+    }
+
+    public String getAlta(){
+        return this.alta;
+    }
+
+    public String getAltb(){
+        return this.altb;
+    }
+
+    public String getAltc(){
+        return this.altc;
+    }
+
+    public String getAltd(){
+        return this.altd;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
 }
