@@ -182,7 +182,6 @@ public class PlayScreen  implements Screen {
                 modo=3;
             }
         }
-
     }
 
     @Override
