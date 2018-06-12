@@ -1,6 +1,5 @@
 package com.mygdx.game.Screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -23,18 +22,24 @@ public class MenuScreen implements Screen {
     Stage stage = new Stage();
     Viewport viewport;
     boolean trocaFase = false;
+    boolean credits = false;
+    boolean menu = false;
 
     public MenuScreen(MyGdxGame game){
         this.game = game;
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
-        Label nome = new Label("Show dos Milhoes",skin,"big");
-        Button jogar = new TextButton("Jogar",skin,"small");
-        nome.setSize(300,Gdx.graphics.getHeight()/2);
-        nome.setPosition(Gdx.graphics.getWidth()/2 - nome.getWidth()/1.3f,Gdx.graphics.getHeight()/2);
+        stageMenu();
+    }
 
-        jogar.setSize(100,50);
-        jogar.setPosition(((Gdx.graphics.getWidth()/2)-jogar.getWidth()/2),(Gdx.graphics.getHeight()/2));
+    public void stageMenu(){
+        Label nome = new Label("Show dos MilhoES",skin,"big");
+        nome.setSize(200,Gdx.graphics.getHeight()/2);
+        nome.setPosition(Gdx.graphics.getWidth()/2 - nome.getWidth()/0.80f,Gdx.graphics.getHeight()/2);
+
+        Button jogar = new TextButton("Jogar",skin,"small");
+        jogar.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
+        jogar.setPosition(((Gdx.graphics.getWidth()/2)-jogar.getWidth()/2),Gdx.graphics.getHeight()/2-jogar.getHeight()/10);
         jogar.addListener(new InputListener(){
 
             @Override
@@ -50,8 +55,8 @@ public class MenuScreen implements Screen {
         });
 
         Button comoJogar = new TextButton("Como jogar",skin,"small");
-        comoJogar.setSize(100,50);
-        comoJogar.setPosition(((Gdx.graphics.getWidth()/2)-comoJogar.getWidth()/2),((Gdx.graphics.getHeight()/2)-comoJogar.getHeight()-10));
+        comoJogar.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
+        comoJogar.setPosition(((Gdx.graphics.getWidth()/2)-comoJogar.getWidth()/2),((Gdx.graphics.getHeight()/2)-comoJogar.getHeight()-20));
         comoJogar.addListener(new InputListener(){
 
             @Override
@@ -66,12 +71,13 @@ public class MenuScreen implements Screen {
         });
 
         Button creditos = new TextButton("Creditos",skin,"small");
-        creditos.setSize(100,50);
-        creditos.setPosition(((Gdx.graphics.getWidth()/2)-creditos.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-70));
+        creditos.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
+        creditos.setPosition(((Gdx.graphics.getWidth()/2)-creditos.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()*2-30));
         creditos.addListener(new InputListener(){
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                credits = true;
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -82,12 +88,13 @@ public class MenuScreen implements Screen {
         });
 
         Button sair = new TextButton("Sair",skin,"small");
-        sair.setSize(100,50);
-        sair.setPosition(((Gdx.graphics.getWidth()/2)-sair.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-130));
+        sair.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
+        sair.setPosition(((Gdx.graphics.getWidth()/2)-sair.getWidth()/2),((Gdx.graphics.getHeight()/2)-sair.getHeight()*3-40));
         sair.addListener(new InputListener(){
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                System.exit(0);
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -102,15 +109,23 @@ public class MenuScreen implements Screen {
         stage.addActor(comoJogar);
         stage.addActor(creditos);
         stage.addActor(sair);
-
     }
 
     public void update(float delta) {
-
-        if(trocaFase == true) {
+        if(trocaFase) {
             game.setScreen(new PlayScreen(game));
             dispose();
             trocaFase=false;
+        }
+        if(credits){
+            stage.clear();
+            mostrarCreditos();
+            credits = false;
+        }
+        if(menu){
+            stage.clear();
+            stageMenu();
+            menu = false;
         }
     }
 
@@ -152,5 +167,36 @@ public class MenuScreen implements Screen {
     public void dispose() {
         skin.dispose();
         stage.dispose();
+    }
+
+    public void mostrarCreditos(){
+        Label texto = new Label("Lorem ipsum dolor sit amet, consectetur adipisicing elit," +
+                " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad " +
+                "minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " +
+                "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit " +
+                "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " +
+                "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",skin,"big");
+        texto.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
+        texto.setPosition(Gdx.graphics.getWidth()/2 - texto.getWidth()/1.3f,Gdx.graphics.getHeight()/2);
+
+        Button voltar = new TextButton("voltar ao menu",skin,"small");
+        voltar.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
+        voltar.setPosition(((Gdx.graphics.getWidth()/2)-voltar.getWidth()/2),((Gdx.graphics.getHeight()/2)-voltar.getHeight()));
+        voltar.addListener(new InputListener(){
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                menu = true;
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+        stage.addActor(texto);
+        stage.addActor(voltar);
     }
 }

@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
 
@@ -39,13 +40,17 @@ public class PlayScreen  implements Screen {
     private boolean girando;
     private float var;
 
+    private Viewport gamePort;
+
     PlayScreen(MyGdxGame game){
 
         this.game = game;
 
         girando=false;
 
-        gameCam = new OrthographicCamera();
+
+
+        //gameCam = new OrthographicCamera();
         //BOX2D
         world = new World(new Vector2(0,0),true);
         b2dr = new Box2DDebugRenderer();
@@ -58,6 +63,7 @@ public class PlayScreen  implements Screen {
         stage = new Stage();
 
         this.background = new Texture("BackgroundSelecaoDePersonagens.png");
+
 
         Button pedrao = new TextButton("Pedrao",skin,"small");
         pedrao.setSize((Gdx.graphics.getWidth()/8),(Gdx.graphics.getHeight()/20));
@@ -236,7 +242,7 @@ public class PlayScreen  implements Screen {
 
             game.batch.begin();
 
-            game.batch.draw(background,0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
 
             game.batch.end();
 
@@ -259,7 +265,7 @@ public class PlayScreen  implements Screen {
         }
 
 
-        b2dr.render(world,gameCam.combined);
+       // b2dr.render(world,gameCam.combined);
 
 
 
@@ -268,6 +274,7 @@ public class PlayScreen  implements Screen {
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width,height);
+
     }
 
     @Override
