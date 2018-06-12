@@ -1,6 +1,5 @@
 package com.mygdx.game.Screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -23,6 +22,7 @@ public class MenuScreen implements Screen {
     Stage stage = new Stage();
     Viewport viewport;
     boolean trocaFase = false;
+    boolean credits = false;
 
     public MenuScreen(MyGdxGame game){
         this.game = game;
@@ -33,7 +33,7 @@ public class MenuScreen implements Screen {
         nome.setSize(300,Gdx.graphics.getHeight()/2);
         nome.setPosition(Gdx.graphics.getWidth()/2 - nome.getWidth()/1.3f,Gdx.graphics.getHeight()/2);
 
-        jogar.setSize(100,50);
+        jogar.setSize(200,75);
         jogar.setPosition(((Gdx.graphics.getWidth()/2)-jogar.getWidth()/2),(Gdx.graphics.getHeight()/2));
         jogar.addListener(new InputListener(){
 
@@ -50,7 +50,7 @@ public class MenuScreen implements Screen {
         });
 
         Button comoJogar = new TextButton("Como jogar",skin,"small");
-        comoJogar.setSize(100,50);
+        comoJogar.setSize(200,75);
         comoJogar.setPosition(((Gdx.graphics.getWidth()/2)-comoJogar.getWidth()/2),((Gdx.graphics.getHeight()/2)-comoJogar.getHeight()-10));
         comoJogar.addListener(new InputListener(){
 
@@ -65,13 +65,14 @@ public class MenuScreen implements Screen {
             }
         });
 
-        Button creditos = new TextButton("Creditos",skin,"small");
-        creditos.setSize(100,50);
-        creditos.setPosition(((Gdx.graphics.getWidth()/2)-creditos.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-70));
+        final Button creditos = new TextButton("Creditos",skin,"small");
+        creditos.setSize(200,75);
+        creditos.setPosition(((Gdx.graphics.getWidth()/2)-creditos.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-95));
         creditos.addListener(new InputListener(){
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                credits = true;
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -82,8 +83,8 @@ public class MenuScreen implements Screen {
         });
 
         Button sair = new TextButton("Sair",skin,"small");
-        sair.setSize(100,50);
-        sair.setPosition(((Gdx.graphics.getWidth()/2)-sair.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-130));
+        sair.setSize(200,75);
+        sair.setPosition(((Gdx.graphics.getWidth()/2)-sair.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-180));
         sair.addListener(new InputListener(){
 
             @Override
@@ -107,10 +108,15 @@ public class MenuScreen implements Screen {
     }
 
     public void update(float delta) {
-        if(trocaFase == true) {
+        if(trocaFase) {
             game.setScreen(new PlayScreen(game));
             dispose();
             trocaFase=false;
+        }
+        if(credits){
+            game.setScreen(new CreditosScreen(game));
+            dispose();
+            credits=false;
         }
     }
 
