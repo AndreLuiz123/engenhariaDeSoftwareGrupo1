@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
 
+
 /**
  * Created by Andre Luiz on 10/06/2018.
  */
@@ -195,7 +196,7 @@ public class PlayScreen  implements Screen {
 
     public void update(float delta){
         world.step(1f/60f, 6,2);
-        System.out.println(roleta.b2body.getAngularVelocity());
+        System.out.println(roleta.centroRoleta.getAngularVelocity());
 
         if(girando){
 
@@ -206,12 +207,10 @@ public class PlayScreen  implements Screen {
         var = var - delta;
 
         if(var - delta < -5){
-            roleta.giraRoleta(0);
-        }
-
-      //  roleta.giraRoleta(1);
             roleta.giraRoleta(0,0);
         }
+
+        //  roleta.giraRoleta(1);
 
         if(modo == 2){
             disposeSelecaoPersonagem();
@@ -235,15 +234,7 @@ public class PlayScreen  implements Screen {
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             game.batch.begin();
-<<<<<<< HEAD
-<<<<<<< HEAD
             game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
-=======
-            game.batch.draw(background,0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
->>>>>>> 5e7da2a4ee2060311043bd0575454238c1e06dd9
-=======
-            game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
->>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
             game.batch.end();
 
             stage.act();
@@ -307,11 +298,7 @@ public class PlayScreen  implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 girando=true;
-<<<<<<< HEAD
-                roleta.giraRoleta(5);
-=======
                 roleta.giraRoleta(15,1);
->>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
                 return super.touchDown(event, x, y, pointer, button);
             }
 

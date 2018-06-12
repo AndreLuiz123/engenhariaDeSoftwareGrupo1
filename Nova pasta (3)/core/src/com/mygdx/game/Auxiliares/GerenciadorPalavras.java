@@ -22,8 +22,8 @@ public class GerenciadorPalavras {
     public Palavra geraPalavra() {
         if(palavras.size() > 0) {
             al = random.nextInt(palavras.size());
-            return palavras[al];
+            return palavras.get(al);
         }
-        return NULL;
+        return null;
     }
 }

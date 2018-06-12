@@ -81,6 +81,7 @@ public class MenuScreen implements Screen {
             }
         });
 
+        /*
         private void fecharApp() {
             AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
             builder.setMessage("Você deseja fechar o aplicativo?");
@@ -104,6 +105,7 @@ public class MenuScreen implements Screen {
             alert.show();
 
         }
+        */
 
         Button sair = new TextButton("Sair",skin,"small");
         sair.setSize(100,50);
