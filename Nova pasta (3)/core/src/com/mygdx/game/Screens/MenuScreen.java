@@ -24,6 +24,7 @@ public class MenuScreen implements Screen {
     boolean trocaFase = false;
     boolean credits = false;
     boolean menu = false;
+    boolean ajuda = false;
 
     public MenuScreen(MyGdxGame game){
         this.game = game;
@@ -61,6 +62,7 @@ public class MenuScreen implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                ajuda = true;
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -127,6 +129,11 @@ public class MenuScreen implements Screen {
             stageMenu();
             menu = false;
         }
+        if(ajuda){
+            stage.clear();
+            mostrarAjuda();
+            ajuda = false;
+        }
     }
 
     @Override
@@ -170,14 +177,51 @@ public class MenuScreen implements Screen {
     }
 
     public void mostrarCreditos(){
-        Label texto = new Label("Lorem ipsum dolor sit amet, consectetur adipisicing elit," +
-                " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad " +
-                "minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " +
-                "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit " +
-                "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " +
-                "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",skin,"big");
-        texto.setSize(350,Gdx.graphics.getHeight()/2);
-        texto.setPosition(Gdx.graphics.getWidth()/2 - texto.getWidth()/1.3f,Gdx.graphics.getHeight()/2);
+        Label texto = new Label("   Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n" +
+                "sed do eiusmod tempor incididunt ut labore et dolore \n" +
+                "magna aliqua. Ut enim ad minim veniam, quis nostrud \n" +
+                "exercitation ullamco laboris nisi ut aliquip ex ea \n" +
+                "commodo consequat. Duis aute irure dolor in reprehenderit \n" +
+                "in voluptate velit esse cillum dolore eu fugiat nulla \n" +
+                "pariatur. Excepteur sint occaecat cupidatat non proident,\n" +
+                "sunt in culpa qui officia deserunt mollit anim id est laborum.",skin,"big");
+        texto.setFontScale(0.45f);
+        texto.setSize(300,Gdx.graphics.getHeight()/2);
+        texto.setPosition(50,Gdx.graphics.getHeight()/2);
+
+        Button voltar = new TextButton("voltar ao menu",skin,"small");
+        voltar.setSize(200,100);
+        voltar.setPosition(((Gdx.graphics.getWidth()/2)-voltar.getWidth()/2),((Gdx.graphics.getHeight()/2)-voltar.getHeight()-130));
+        voltar.addListener(new InputListener(){
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                menu = true;
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+        stage.addActor(texto);
+        stage.addActor(voltar);
+    }
+
+    public void mostrarAjuda(){
+        Label texto = new Label("   Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n" +
+                "sed do eiusmod tempor incididunt ut labore et dolore \n" +
+                "magna aliqua. Ut enim ad minim veniam, quis nostrud \n" +
+                "exercitation ullamco laboris nisi ut aliquip ex ea \n" +
+                "commodo consequat. Duis aute irure dolor in reprehenderit \n" +
+                "in voluptate velit esse cillum dolore eu fugiat nulla \n" +
+                "pariatur. Excepteur sint occaecat cupidatat non proident,\n" +
+                "sunt in culpa qui officia deserunt mollit anim id est laborum.",skin,"big");
+        texto.setFontScale(0.45f);
+        texto.setSize(300,Gdx.graphics.getHeight()/2);
+        texto.setPosition(50,Gdx.graphics.getHeight()/2);
 
         Button voltar = new TextButton("voltar ao menu",skin,"small");
         voltar.setSize(200,100);
