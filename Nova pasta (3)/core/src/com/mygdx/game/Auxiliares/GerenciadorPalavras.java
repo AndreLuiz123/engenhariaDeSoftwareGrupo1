@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GerenciadorPalavras {
-    public ArrayList<Palavra> palavras;
+    private ArrayList<Palavra> palavras;
 
     Random random;
     int al;
