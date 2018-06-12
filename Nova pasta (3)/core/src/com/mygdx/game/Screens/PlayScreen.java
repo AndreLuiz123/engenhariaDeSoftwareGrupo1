@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.mygdx.game.Auxiliares.Pergunta;
 import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
 
@@ -38,6 +39,7 @@ public class PlayScreen  implements Screen {
     private Roleta roleta;
     private boolean girando;
     private float var;
+
 
     PlayScreen(MyGdxGame game){
 
@@ -199,7 +201,7 @@ public class PlayScreen  implements Screen {
 
        
 
-        //  roleta.giraRoleta(1);
+
 
         if(modo == 2){
             disposeSelecaoPersonagem();

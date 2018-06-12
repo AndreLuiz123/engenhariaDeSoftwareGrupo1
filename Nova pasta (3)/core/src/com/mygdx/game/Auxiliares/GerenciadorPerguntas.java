@@ -88,5 +88,24 @@ public class GerenciadorPerguntas {
         return null;
     }
 
+<<<<<<< HEAD
+=======
+    public Pergunta pulaPergunta(int categoria){
+        switch (categoria){
+            case 0:
+                return geraPergunta0();
+            case 1:
+                return geraPergunta1();
+            case 2:
+                return geraPergunta2();
+            case 3:
+                return geraPergunta3();
+            case 4:
+                return geraPergunta4();
+            default: return null;
+
+        }
+    }
+>>>>>>> Matheus
 
 }
