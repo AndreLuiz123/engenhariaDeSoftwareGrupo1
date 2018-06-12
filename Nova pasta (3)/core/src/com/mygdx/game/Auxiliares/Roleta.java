@@ -55,9 +55,16 @@ public class Roleta extends Sprite {
 
     }
 
+<<<<<<< HEAD
     public void giraRoleta(int angularVelocity){
 
         b2body.setAngularVelocity(angularVelocity);
+=======
+    public void giraRoleta(int angularVelocity, int angularDamping){
+
+        b2body.setAngularVelocity(angularVelocity);
+        b2body.setAngularDamping(angularDamping);
+>>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
 
     }
 

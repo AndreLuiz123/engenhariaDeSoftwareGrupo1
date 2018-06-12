@@ -199,20 +199,31 @@ public class PlayScreen  implements Screen {
 
         if(girando){
 
+<<<<<<< HEAD
           var = delta;
+=======
+            var = delta;
+>>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
             girando = false;
         }
 
         var = var - delta;
 
         if(var - delta < -5){
+<<<<<<< HEAD
             roleta.giraRoleta(0);
         }
 
       //  roleta.giraRoleta(1);
+=======
+            roleta.giraRoleta(0,0);
+        }
+
+        //  roleta.giraRoleta(1);
+>>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
 
         if(modo == 2){
-           disposeSelecaoPersonagem();
+            disposeSelecaoPersonagem();
             montaModoGiraRoleta();
             modo=4;
         }else{
@@ -234,10 +245,14 @@ public class PlayScreen  implements Screen {
 
             game.batch.begin();
 <<<<<<< HEAD
+<<<<<<< HEAD
             game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
 =======
             game.batch.draw(background,0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 >>>>>>> 5e7da2a4ee2060311043bd0575454238c1e06dd9
+=======
+            game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+>>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
             game.batch.end();
 
             stage.act();
@@ -301,7 +316,11 @@ public class PlayScreen  implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 girando=true;
+<<<<<<< HEAD
                 roleta.giraRoleta(5);
+=======
+                roleta.giraRoleta(15,1);
+>>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
                 return super.touchDown(event, x, y, pointer, button);
             }
 

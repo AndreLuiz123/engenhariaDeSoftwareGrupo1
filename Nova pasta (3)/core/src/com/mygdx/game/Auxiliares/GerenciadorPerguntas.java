@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GerenciadorPerguntas {
-    public ArrayList<Pergunta> perguntascat0; //Perguntas de levantamento de dados
-    public ArrayList<Pergunta> perguntascat1; //Perguntas de ferramentas case
-    public ArrayList<Pergunta> perguntascat2; //Perguntas de diagramas uml
-    public ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
-    public ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
+    private ArrayList<Pergunta> perguntascat0; //Perguntas de levantamento de dados
+    private ArrayList<Pergunta> perguntascat1; //Perguntas de ferramentas case
+    private ArrayList<Pergunta> perguntascat2; //Perguntas de diagramas uml
+    private ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
+    private ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
 
     Random random;
     int al;
@@ -50,38 +50,38 @@ public class GerenciadorPerguntas {
     public Pergunta geraPergunta0(){
         if(perguntascat0.size()>0) {
             al = random.nextInt(perguntascat0.size());
-            return perguntascat0[al];
+            return perguntascat0.get(al);
         }
-        return NULL;
+        return null;
     }
 
     public Pergunta geraPergunta1(){
         if(perguntascat1.size()>0) {
             al = random.nextInt(perguntascat1.size());
-            return perguntascat1[al];
+            return perguntascat1.get(al);
         }
-        return NULL;
+        return null;
     }
     public Pergunta geraPergunta2(){
         if(perguntascat2.size()>0) {
             al = random.nextInt(perguntascat2.size());
-            return perguntascat2[al];
+            return perguntascat2.get(al);
         }
-        return NULL;
+        return null;
     }
     public Pergunta geraPergunta3(){
         if(perguntascat3.size()>0) {
             al = random.nextInt(perguntascat3.size());
-            return perguntascat3[al];
+            return perguntascat3.get(al);
         }
-        return NULL;
+        return null;
     }
     public Pergunta geraPergunta4(){
         if(perguntascat4.size()>0) {
             al = random.nextInt(perguntascat4.size());
-            return perguntascat4[al];
+            return perguntascat4.get(al);
         }
-        return NULL;
+        return null;
     }
 
 }
