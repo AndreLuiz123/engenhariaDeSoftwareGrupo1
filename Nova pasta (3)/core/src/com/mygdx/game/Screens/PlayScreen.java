@@ -3,13 +3,18 @@ package com.mygdx.game.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
 
 /**
@@ -18,17 +23,36 @@ import com.mygdx.game.MyGdxGame;
 
 public class PlayScreen  implements Screen {
 
-    MyGdxGame game;
-    Texture background;
-    Skin skin;
-    Stage stage;
+    private MyGdxGame game;
+    private Texture background;
+    private Skin skin;
+    private Stage stage;
 
     private int personagem, modo;
+
+    private OrthographicCamera gameCam;
+
+    private World world;
+    private Box2DDebugRenderer b2dr;
+
+    private Roleta roleta;
+    private boolean girando;
+    private float var;
 
     PlayScreen(MyGdxGame game){
 
         this.game = game;
 
+        girando=false;
+
+        gameCam = new OrthographicCamera();
+        //BOX2D
+        world = new World(new Vector2(0,0),true);
+        b2dr = new Box2DDebugRenderer();
+        roleta = new Roleta(world);
+
+
+        //BOTOES
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stage = new Stage();
 
@@ -170,9 +194,25 @@ public class PlayScreen  implements Screen {
     }
 
     public void update(float delta){
-        System.out.println(personagem);
+        world.step(1f/60f, 6,2);
+        System.out.println(roleta.b2body.getAngularVelocity());
+
+        if(girando){
+
+            var = delta;
+            girando = false;
+        }
+
+        var = var - delta;
+
+        if(var - delta < -5){
+            roleta.giraRoleta(0,0);
+        }
+
+        //  roleta.giraRoleta(1);
+
         if(modo == 2){
-           disposeSelecaoPersonagem();
+            disposeSelecaoPersonagem();
             montaModoGiraRoleta();
             modo=4;
         }else{
@@ -193,7 +233,7 @@ public class PlayScreen  implements Screen {
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             game.batch.begin();
-            game.batch.draw(background,0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            game.batch.draw(background,0,0,MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
             game.batch.end();
 
             stage.act();
@@ -214,6 +254,8 @@ public class PlayScreen  implements Screen {
             }
         }
 
+
+        b2dr.render(world,gameCam.combined);
 
 
 
@@ -254,7 +296,8 @@ public class PlayScreen  implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                personagem = 5;
+                girando=true;
+                roleta.giraRoleta(15,1);
                 return super.touchDown(event, x, y, pointer, button);
             }
 

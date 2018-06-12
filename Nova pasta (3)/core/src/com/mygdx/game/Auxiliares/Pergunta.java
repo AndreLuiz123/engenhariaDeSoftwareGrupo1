@@ -25,4 +25,11 @@ public class Pergunta {
 
     }
 
+    public boolean eRespostaCorreta(int resp){
+        if(resp == this.altcorreta){
+            return true;
+        }else
+            return false;
+    }
+
 }
