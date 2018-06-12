@@ -199,28 +199,19 @@ public class PlayScreen  implements Screen {
 
         if(girando){
 
-<<<<<<< HEAD
-          var = delta;
-=======
             var = delta;
->>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
             girando = false;
         }
 
         var = var - delta;
 
         if(var - delta < -5){
-<<<<<<< HEAD
             roleta.giraRoleta(0);
         }
 
       //  roleta.giraRoleta(1);
-=======
             roleta.giraRoleta(0,0);
         }
-
-        //  roleta.giraRoleta(1);
->>>>>>> 99aac22b36311fd164fe51568a0b17924f8c6bd4
 
         if(modo == 2){
             disposeSelecaoPersonagem();
