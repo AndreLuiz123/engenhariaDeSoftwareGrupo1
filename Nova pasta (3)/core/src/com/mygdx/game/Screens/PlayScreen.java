@@ -197,17 +197,7 @@ public class PlayScreen  implements Screen {
         world.step(1f/60f, 6,2);
         System.out.println(roleta.b2body.getAngularVelocity());
 
-        if(girando){
-
-            var = delta;
-            girando = false;
-        }
-
-        var = var - delta;
-
-        if(var - delta < -5){
-            roleta.giraRoleta(0,0);
-        }
+       
 
         //  roleta.giraRoleta(1);
 
