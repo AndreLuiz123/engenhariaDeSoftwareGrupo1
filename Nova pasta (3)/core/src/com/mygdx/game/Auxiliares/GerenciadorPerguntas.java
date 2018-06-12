@@ -13,7 +13,7 @@ public class GerenciadorPerguntas {
     Random random;
     int al;
 
-    GerenciadorPerguntas(){
+    GerenciadorPerguntas() {
         perguntascat0 = new ArrayList<Pergunta>();
         perguntascat1 = new ArrayList<Pergunta>();
         perguntascat2 = new ArrayList<Pergunta>();
@@ -27,9 +27,9 @@ public class GerenciadorPerguntas {
         perguntascat0.add(new Pergunta("Qual dessas nao e uma vantagem do uso de questionarios?", "Agilidade no processo",
                 "Aplicacao facil", "Uniformidade na mensuracao", "Obtencao de informacao detalhada", 3));
         perguntascat0.add(new Pergunta("Qual dessas alternativas e uma vantagem da Observacao Pessoal?", "Oferece evidências formais",
-                "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas","Uniformidade na mensuracao", 1));
+                "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas", "Uniformidade na mensuracao", 1));
         perguntascat0.add(new Pergunta("A tecnica de levantamento de dados pode ser dividida em 4 fases. Assinale a alternativa que as enumera em ordem correta:", "Oferece evidências formais",
-                "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas","Uniformidade na mensuracao", 1));
+                "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas", "Uniformidade na mensuracao", 1));
 
         perguntascat1.add(new Pergunta("Qual dessas ferramentas CASE e indicada para Gerencia de Projetos?", "CVS",
                 "Git", "Google Code", "Oracle", 2));
@@ -48,45 +48,43 @@ public class GerenciadorPerguntas {
     }
 
 
-    public Pergunta geraPergunta0(){
-        if(perguntascat0.size()>0) {
+    public Pergunta geraPergunta0() {
+        if (perguntascat0.size() > 0) {
             al = random.nextInt(perguntascat0.size());
             return perguntascat0.get(al);
         }
         return null;
     }
 
-    public Pergunta geraPergunta1(){
-        if(perguntascat1.size()>0) {
+    public Pergunta geraPergunta1() {
+        if (perguntascat1.size() > 0) {
             al = random.nextInt(perguntascat1.size());
             return perguntascat1.get(al);
         }
         return null;
     }
-    public Pergunta geraPergunta2(){
-        if(perguntascat2.size()>0) {
+
+    public Pergunta geraPergunta2() {
+        if (perguntascat2.size() > 0) {
             al = random.nextInt(perguntascat2.size());
             return perguntascat2.get(al);
         }
         return null;
     }
-    public Pergunta geraPergunta3(){
-        if(perguntascat3.size()>0) {
+
+    public Pergunta geraPergunta3() {
+        if (perguntascat3.size() > 0) {
             al = random.nextInt(perguntascat3.size());
             return perguntascat3.get(al);
         }
         return null;
     }
-    public Pergunta geraPergunta4(){
-        if(perguntascat4.size()>0) {
+
+    public Pergunta geraPergunta4() {
+        if (perguntascat4.size() > 0) {
             al = random.nextInt(perguntascat4.size());
             return perguntascat4.get(al);
         }
         return null;
     }
-<<<<<<< HEAD
 }
-=======
-
-}
->>>>>>> Matheus
