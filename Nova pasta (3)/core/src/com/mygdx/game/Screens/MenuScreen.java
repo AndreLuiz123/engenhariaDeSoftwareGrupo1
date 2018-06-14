@@ -3,7 +3,9 @@ package com.mygdx.game.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -185,14 +187,12 @@ public class MenuScreen implements Screen {
     }
 
     public void mostrarCreditos(){
-        Label texto = new Label("   Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore \n" +
-                "magna aliqua. Ut enim ad minim veniam, quis nostrud \n" +
-                "exercitation ullamco laboris nisi ut aliquip ex ea \n" +
-                "commodo consequat. Duis aute irure dolor in reprehenderit \n" +
-                "in voluptate velit esse cillum dolore eu fugiat nulla \n" +
-                "pariatur. Excepteur sint occaecat cupidatat non proident,\n" +
-                "sunt in culpa qui officia deserunt mollit anim id est laborum.",skin,"big");
+        Label texto = new Label("Andre Luiz Vasconcelos Ferreira\n" +
+                "Jose Santos Sa Carvalho\n" +
+                "Leonardo Nunes Aragao \n" +
+                "Matheus Franklin Rodrigues Silva \n"
+               ,skin,"big");
+     //   texto.setStyle( new Label.LabelStyle(new BitmapFont(), Color.GOLD));
         texto.setFontScale(0.45f);
         texto.setSize(300,Gdx.graphics.getHeight()/2);
         texto.setPosition(50,Gdx.graphics.getHeight()/2);

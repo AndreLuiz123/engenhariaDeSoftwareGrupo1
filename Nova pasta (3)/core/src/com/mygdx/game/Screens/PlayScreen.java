@@ -230,7 +230,21 @@ public class PlayScreen  implements Screen {
 
         if (modo == 3) {
 
-
+            if(perg.eRespostaCorreta(resppergunta)){
+                switch (resppergunta){
+                    case 0: optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.BLUE));break;
+                    case 1: optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.BLUE));break;
+                    case 2: optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.BLUE)); break;
+                    case 3: optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.BLUE)); break;
+                }
+            }else{
+                switch (resppergunta){
+                    case 0: optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.RED));break;
+                    case 1: optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.RED));break;
+                    case 2: optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.RED)); break;
+                    case 3: optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.RED)); break;
+                }
+            }
         }
 
 
@@ -368,7 +382,7 @@ public class PlayScreen  implements Screen {
             }
         });
 
-        catpergunta = 0;
+        catpergunta = 1;
 
         switch (catpergunta){
             case 0 : perg = gerPerg.geraPergunta0(); break;
