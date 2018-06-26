@@ -13,9 +13,12 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.Screens.PlayScreen;
+<<<<<<< HEAD
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 
+=======
+>>>>>>> Leonardo
 
 /**
  * Created by Andre Luiz on 11/06/2018.
@@ -23,6 +26,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Roleta extends Sprite {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Leonardo
 
     public World world;
     public Body b2body;
@@ -67,4 +74,8 @@ public class Roleta extends Sprite {
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Leonardo
 }
