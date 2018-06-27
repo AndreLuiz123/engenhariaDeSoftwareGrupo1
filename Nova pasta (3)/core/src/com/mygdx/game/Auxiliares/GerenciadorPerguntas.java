@@ -9,6 +9,7 @@ public class GerenciadorPerguntas {
     private ArrayList<Pergunta> perguntascat2; //Perguntas de diagramas uml
     private ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
     private ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
+    private Pergunta perguntaNeutra;
 
     Random random;
     int al;
@@ -22,6 +23,9 @@ public class GerenciadorPerguntas {
         random = new Random();
 
         //Banco de Dados: kkkkk
+
+        perguntaNeutra = new Pergunta("","","","","",10);
+
         perguntascat0.add(new Pergunta("Qual dessas nao e uma tecnica de levantamento de dados?", "Observacao pessoal",
                 "Entrevista", "Seminario", "Conversa Casual", 3));
         perguntascat0.add(new Pergunta("Qual dessas nao e uma vantagem do uso de questionarios?", "Agilidade no processo",
@@ -103,6 +107,10 @@ public class GerenciadorPerguntas {
             default: return null;
 
         }
+    }
+
+    public Pergunta getPerguntaNeutra(){
+        return perguntaNeutra;
     }
 
 }

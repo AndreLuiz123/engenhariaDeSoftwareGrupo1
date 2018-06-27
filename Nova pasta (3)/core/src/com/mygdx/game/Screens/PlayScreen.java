@@ -47,16 +47,7 @@ public class PlayScreen  implements Screen {
     private float var;
 
     private GerenciadorPerguntas gerPerg;
-<<<<<<< HEAD
 
-    Label pergunta, optA,optB,optC,optD;
-
-    PlayScreen(MyGdxGame game){
-
-        this.game = game;
-
-        girando=false;
-=======
     private Pergunta perg;
     private int resppergunta;
     private int catpergunta;
@@ -68,7 +59,7 @@ public class PlayScreen  implements Screen {
         this.game = game;
 
         girando = false;
->>>>>>> Leonardo
+
 
         gameCam = new OrthographicCamera();
         //BOX2D
@@ -222,24 +213,13 @@ public class PlayScreen  implements Screen {
         Gdx.input.setInputProcessor(stage);
     }
 
-<<<<<<< HEAD
-    public void update(float delta){
-        world.step(1f/60f, 6,2);
-        System.out.println(roleta.b2body.getAngularVelocity());
-
-
-
-
-
-        if(modo == 2){
-=======
     public void update(float delta) {
         world.step(1f / 60f, 6, 2);
         System.out.println(roleta.b2body.getAngularVelocity());
 
 
         if (modo == 2) {
->>>>>>> Leonardo
+
             disposeSelecaoPersonagem();
             montaModoGiraRoleta();
             modo = 4;
@@ -253,7 +233,6 @@ public class PlayScreen  implements Screen {
 
         if (modo == 3) {
 
-<<<<<<< HEAD
 
 
 
@@ -264,11 +243,6 @@ public class PlayScreen  implements Screen {
 
 
 
-
-
-
-
-=======
             if(perg.eRespostaCorreta(resppergunta)){
                 switch (resppergunta){
                     case 0: optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.BLUE));break;
@@ -284,7 +258,7 @@ public class PlayScreen  implements Screen {
                     case 3: optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.RED)); break;
                 }
             }
->>>>>>> Leonardo
+
         }
 
 
@@ -320,12 +294,9 @@ public class PlayScreen  implements Screen {
         }
 
 
-<<<<<<< HEAD
-        b2dr.render(world,gameCam.combined);
 
-=======
         b2dr.render(world, gameCam.combined);
->>>>>>> Leonardo
+
 
 
     }
@@ -357,80 +328,13 @@ public class PlayScreen  implements Screen {
 
     public void montaModoGiraRoleta() {
 
-<<<<<<< HEAD
-        Button opA = new TextButton("A",skin,"small");
-        opA.setSize((Gdx.graphics.getWidth()/15),(Gdx.graphics.getHeight())/10);
-        opA.setPosition(0,((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5)) );
-        opA.addListener(new InputListener(){
 
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        Button opB = new TextButton("B",skin,"small");
-        opB.setSize((Gdx.graphics.getWidth()/15),(Gdx.graphics.getHeight())/10);
-        opB.setPosition(0,((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5)) - opB.getHeight() );
-        opB.addListener(new InputListener(){
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        Button opC = new TextButton("C",skin,"small");
-        opC.setSize((Gdx.graphics.getWidth()/15),(Gdx.graphics.getHeight())/10);
-        opC.setPosition(0,((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5)) - 2*opC.getHeight() );
-        opC.addListener(new InputListener(){
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        Button opD = new TextButton("D",skin,"small");
-        opD.setSize((Gdx.graphics.getWidth()/15),(Gdx.graphics.getHeight())/10);
-        opD.setPosition(0,((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5)) - 3*opD.getHeight() );
-        opD.addListener(new InputListener(){
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-
-
-=======
         resppergunta = 5;
         final Button opA = new TextButton("A", skin, "small");
         opA.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opA.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)));
         opA.addListener(new InputListener() {
->>>>>>> Leonardo
+
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -451,10 +355,7 @@ public class PlayScreen  implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-<<<<<<< HEAD
-                girando=true;
-                roleta.giraRoleta(15,1);
-=======
+
                 resppergunta = 1;
                 return super.touchDown(event, x, y, pointer, button);
             }
@@ -491,7 +392,7 @@ public class PlayScreen  implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 resppergunta = 3;
->>>>>>> Leonardo
+
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -501,19 +402,6 @@ public class PlayScreen  implements Screen {
             }
         });
 
-<<<<<<< HEAD
-
-        pergunta = new Label(String.format(gerPerg.geraPergunta0().getTexto()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        pergunta.setPosition(0,((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/3)));
-        optA = new Label(String.format(gerPerg.geraPergunta0().getAlta()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optA.setPosition(opA.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5)));
-        optB = new Label(String.format(gerPerg.geraPergunta0().getAltb()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optB.setPosition(opB.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5))-opB.getHeight());
-        optC = new Label(String.format(gerPerg.geraPergunta0().getAltc()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optC.setPosition(opC.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5))- opC.getHeight()*2);
-        optD = new Label(String.format(gerPerg.geraPergunta0().getAltd()),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optD.setPosition(opD.getWidth(),((Gdx.graphics.getHeight()/2))+((Gdx.graphics.getHeight()/5))-opD.getHeight()*3);
-=======
         catpergunta = 1;
 
         switch (catpergunta){
@@ -569,7 +457,7 @@ public class PlayScreen  implements Screen {
             }
         });
 
->>>>>>> Leonardo
+
 
         stage.addActor(giraRoleta);
         stage.addActor(opA);

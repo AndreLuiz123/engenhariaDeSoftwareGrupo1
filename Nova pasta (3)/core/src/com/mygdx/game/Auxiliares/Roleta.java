@@ -13,12 +13,6 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.Screens.PlayScreen;
-<<<<<<< HEAD
-import com.badlogic.gdx.graphics.g2d.Sprite;
-
-
-=======
->>>>>>> Leonardo
 
 /**
  * Created by Andre Luiz on 11/06/2018.
@@ -26,24 +20,22 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Roleta extends Sprite {
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Leonardo
 
     public World world;
     public Body b2body;
     public BodyDef bdef;
 
+    public Texture texturaDaRoleta;
+
     public Roleta(World world) {
 
-        this.world = world;
-
-        defineRoleta();
 
         this.world = world;
 
         defineRoleta();
+
+        texturaDaRoleta = new Texture("jogarOpcao.png");
 
     }
 
@@ -58,11 +50,9 @@ public class Roleta extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(0.3f);
 
-
         fdef.shape = shape;
 
         b2body.createFixture(fdef);
-
 
     }
 
@@ -73,9 +63,10 @@ public class Roleta extends Sprite {
 
     }
 
+    public float getAngularPosition(){
 
-<<<<<<< HEAD
-=======
+        return b2body.getAngle();
+    }
 
->>>>>>> Leonardo
+
 }
