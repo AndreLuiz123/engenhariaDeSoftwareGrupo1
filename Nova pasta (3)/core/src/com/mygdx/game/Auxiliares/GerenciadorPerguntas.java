@@ -10,6 +10,7 @@ public class GerenciadorPerguntas {
     private ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
     private ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
     private Pergunta perguntaNeutra;
+    private String alternativa;
 
     Random random;
     int al;

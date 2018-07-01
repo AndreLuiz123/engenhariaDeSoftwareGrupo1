@@ -40,6 +40,8 @@ public class ModoGiraRoleta implements Screen {
     private Roleta roleta;
     private MostradorPerguntas mostradorPerguntas;
 
+    private int pontuacao;
+
     public ModoGiraRoleta(MyGdxGame game){
 
 
@@ -54,7 +56,7 @@ public class ModoGiraRoleta implements Screen {
 
         //Coisas específicas do ModoGiraRoleta
         roleta = new Roleta(world);
-        mostradorPerguntas = new MostradorPerguntas(world);
+        mostradorPerguntas = new MostradorPerguntas(world, stage);
 
         Button giraRoleta = new TextButton("Gira a Roleta", skin, "small");
         giraRoleta.setSize((Gdx.graphics.getWidth() / 5), (Gdx.graphics.getHeight() / 10));
@@ -64,6 +66,8 @@ public class ModoGiraRoleta implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 roleta.giraRoleta(5,1);
+                mostradorPerguntas.trocando=true;
+                mostradorPerguntas.voltaPerguntasAoNormal();
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -73,7 +77,7 @@ public class ModoGiraRoleta implements Screen {
             }
         });
 
-        mostradorPerguntas.criaBotao(stage);
+        mostradorPerguntas.criaBotao();
 
 
         stage.addActor(giraRoleta);
@@ -93,7 +97,9 @@ public class ModoGiraRoleta implements Screen {
         world.step(1f / 60f, 6, 2);
 
     //Troca perguntas
-
+      mostradorPerguntas.controlaPerguntas(roleta);
+      mostradorPerguntas.mudaAltEscolhida();
+      mostradorPerguntas.acertouOuErrouResposta();
 
 
 

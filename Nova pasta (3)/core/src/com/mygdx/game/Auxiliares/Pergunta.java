@@ -51,4 +51,8 @@ public class Pergunta {
     public String getTexto() {
         return texto;
     }
+
+    public int getAltcorreta(){
+        return this.altcorreta;
+    }
 }
