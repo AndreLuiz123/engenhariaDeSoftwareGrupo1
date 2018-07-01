@@ -40,6 +40,8 @@ public class ModoGiraRoleta implements Screen {
     private Roleta roleta;
     private MostradorPerguntas mostradorPerguntas;
 
+    private boolean perdeu;
+
     private int pontuacao;
 
     public ModoGiraRoleta(MyGdxGame game){
@@ -54,9 +56,12 @@ public class ModoGiraRoleta implements Screen {
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stage = new Stage();
 
+
         //Coisas específicas do ModoGiraRoleta
         roleta = new Roleta(world);
         mostradorPerguntas = new MostradorPerguntas(world, stage);
+        perdeu = false;
+
 
         Button giraRoleta = new TextButton("Gira a Roleta", skin, "small");
         giraRoleta.setSize((Gdx.graphics.getWidth() / 5), (Gdx.graphics.getHeight() / 10));
@@ -86,9 +91,7 @@ public class ModoGiraRoleta implements Screen {
 
 
     @Override
-    public void show() {
-        Gdx.input.setInputProcessor(stage);
-    }
+    public void show() {Gdx.input.setInputProcessor(stage);}
 
 
     public void update(float delta){
@@ -99,8 +102,13 @@ public class ModoGiraRoleta implements Screen {
     //Troca perguntas
       mostradorPerguntas.controlaPerguntas(roleta);
       mostradorPerguntas.mudaAltEscolhida();
+      mostradorPerguntas.mudaPontuacao();
       mostradorPerguntas.acertouOuErrouResposta();
 
+    //Acaba jogo
+        if(mostradorPerguntas.getPontuacao()<0){
+            perdeu = true;
+        }
 
 
     }
@@ -108,17 +116,30 @@ public class ModoGiraRoleta implements Screen {
     @Override
     public void render(float delta) {
 
-        update(delta);
+        if(!perdeu){
+            update(delta);
 
-        Gdx.gl.glClearColor(0, 0, 1, 0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            Gdx.gl.glClearColor(0, 0, 1, 0);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        game.batch.begin();
-        game.batch.end();
-        b2dr.render(world, gameCam.combined);
+            game.batch.begin();
+            game.batch.end();
+            b2dr.render(world, gameCam.combined);
 
-        stage.act();
-        stage.draw();
+            stage.act();
+            stage.draw();
+        }else{
+            update(delta);
+
+            Gdx.gl.glClearColor(0, 0, 1, 0);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        }
+
+
+
+
+
+
     }
 
     @Override

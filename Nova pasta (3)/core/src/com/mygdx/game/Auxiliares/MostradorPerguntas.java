@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.ColorInfluencer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -22,6 +23,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import org.w3c.dom.Text;
 import org.w3c.dom.css.Rect;
+
+import java.util.Random;
 
 import javax.management.relation.Role;
 
@@ -47,12 +50,15 @@ public class MostradorPerguntas extends Sprite {
     public Button opC;
     public Button opD;
     public Button optSelecionadaBtn;
+    public Button ajudaAmigo, pulaPergunta;
     public Label optA;
     public Label optB;
     public Label optC;
     public Label optD;
     public Label optSelecionada;
+    public Label pontuacao;
     public String alternativa;
+    public int pontuacaoObtida;
     public boolean respostaCerta;
 
     public boolean trocando;
@@ -75,6 +81,7 @@ public class MostradorPerguntas extends Sprite {
         perg = gerenciadorPerguntas.geraPergunta0();
 
         resposta = 10;
+        pontuacaoObtida = 0;
 
         trocando = false;
 
@@ -86,6 +93,7 @@ public class MostradorPerguntas extends Sprite {
         optD = new Label(perg.getAltd(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         optSelecionada = new Label("Opção:" + alternativa, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        pontuacao = new Label("Pontuação:" + pontuacaoObtida, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
 
         opA = new TextButton("A", skin, "small");
@@ -93,7 +101,8 @@ public class MostradorPerguntas extends Sprite {
         opC = new TextButton("C", skin, "small");
         opD = new TextButton("D", skin, "small");
         optSelecionadaBtn = new TextButton("Confirmar Resposta", skin, "small");
-
+        pulaPergunta = new TextButton("Pula pergunta", skin, "small");
+        ajudaAmigo = new TextButton("Ajuda de amigo", skin, "small");
     }
 
     public void controlaPerguntas(Roleta roleta) {
@@ -146,6 +155,13 @@ public class MostradorPerguntas extends Sprite {
         optSelecionada.setText("Opção:" + alternativa);
 
     }
+
+    public void mudaPontuacao() {
+
+        pontuacao.setText("Pontuação:" + pontuacaoObtida);
+
+    }
+
 
     public void criaBotao() {
 
@@ -248,6 +264,49 @@ public class MostradorPerguntas extends Sprite {
             }
         });
 
+        pulaPergunta.setPosition(Gdx.graphics.getWidth()- 2*pontuacao.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight() / 2);
+        pulaPergunta.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
+        pulaPergunta.addListener(new InputListener() {
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                perg = gerenciadorPerguntas.pulaPergunta(0);
+                mudaPergunta(perg.getTexto(),perg.getAlta(),perg.getAltb(),perg.getAltc(),perg.getAltd());
+                pontuacaoObtida--;
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+        ajudaAmigo.setPosition(Gdx.graphics.getWidth()- 2*pontuacao.getWidth(),((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 3 * opC.getHeight() / 2);
+        ajudaAmigo.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
+        ajudaAmigo.addListener(new InputListener() {
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                coloreRespostaErrada();
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+
+
+
+        pontuacao.setPosition(Gdx.graphics.getWidth() - 4*pontuacao.getWidth(),Gdx.graphics.getHeight()-2*pontuacao.getHeight());
+
+        pontuacao.setFontScaleX(3);
+        pontuacao.setFontScaleY(3);
+
+
         stage.addActor(pergunta);
         stage.addActor(opA);
         stage.addActor(optA);
@@ -259,6 +318,9 @@ public class MostradorPerguntas extends Sprite {
         stage.addActor(optD);
         stage.addActor(optSelecionada);
         stage.addActor(optSelecionadaBtn);
+        stage.addActor(pontuacao);
+        stage.addActor(ajudaAmigo);
+        stage.addActor(pulaPergunta);
     }
 
     public void acertouOuErrouResposta() {
@@ -267,11 +329,13 @@ public class MostradorPerguntas extends Sprite {
 
             if (perg.eRespostaCorreta(resposta)) {
                 acertouResposta(resposta);
+                pontuacaoObtida++;
 
             } else {
 
                 acertouResposta(perg.getAltcorreta());
                 errouResposta(resposta);
+                pontuacaoObtida--;
 
             }
 
@@ -295,6 +359,28 @@ public class MostradorPerguntas extends Sprite {
                 break;
             case 3:
                 optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+                break;
+        }
+    }
+
+    public void coloreRespostaErrada(){
+
+        int respostaC;
+
+        respostaC = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
+
+        switch (respostaC) {
+            case 0:
+                optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                break;
+            case 1:
+                optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                break;
+            case 2:
+                optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                break;
+            case 3:
+                optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
                 break;
         }
     }
@@ -334,6 +420,10 @@ public class MostradorPerguntas extends Sprite {
             }
         }
 
+    }
+
+    public int getPontuacao(){
+        return this.pontuacaoObtida;
     }
 
 

@@ -33,8 +33,8 @@ public class GerenciadorPerguntas {
                 "Aplicacao facil", "Uniformidade na mensuracao", "Obtencao de informacao detalhada", 3));
         perguntascat0.add(new Pergunta("Qual dessas alternativas e uma vantagem da Observacao Pessoal?", "Oferece evidências formais",
                 "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas", "Uniformidade na mensuracao", 1));
-        perguntascat0.add(new Pergunta("A tecnica de levantamento de dados pode ser dividida em 4 fases. Assinale a alternativa que as enumera em ordem correta:", "Oferece evidências formais",
-                "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas", "Uniformidade na mensuracao", 1));
+        perguntascat0.add(new Pergunta("A tecnica de levantamento de dados pode ser dividida em 4 fases. Assinale a alternativa que as enumera em ordem correta:", "preparação, prototipação, correção e documentação",
+                "definição, programação, realização, e organização", "preparação, realização, interpretação e conclusão", "prototipação, organização, correção e conclusão", 2));
 
         perguntascat1.add(new Pergunta("Qual dessas ferramentas CASE e indicada para Gerencia de Projetos?", "CVS",
                 "Git", "Google Code", "Oracle", 2));
@@ -108,6 +108,16 @@ public class GerenciadorPerguntas {
             default: return null;
 
         }
+    }
+
+    public int retornaRespostaErrada(int respCerta){
+        int r=respCerta;
+
+        while(r==respCerta){
+            r = random.nextInt(3);
+        }
+
+        return r;
     }
 
     public Pergunta getPerguntaNeutra(){
