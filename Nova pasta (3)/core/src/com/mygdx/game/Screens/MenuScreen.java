@@ -190,6 +190,7 @@ public class MenuScreen implements Screen {
     public void dispose() {
         skin.dispose();
         stage.dispose();
+        sound.dispose();
     }
 
     public void mostrarCreditos(){
