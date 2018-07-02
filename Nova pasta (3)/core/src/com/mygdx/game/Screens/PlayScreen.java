@@ -65,7 +65,7 @@ public class PlayScreen  implements Screen {
         //BOX2D
         world = new World(new Vector2(0, 0), true);
         b2dr = new Box2DDebugRenderer();
-        roleta = new Roleta(world);
+        //roleta = new Roleta(world);
 
 
         //BOTOES

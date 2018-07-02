@@ -114,7 +114,7 @@ public class GerenciadorPerguntas {
         int r=respCerta;
 
         while(r==respCerta){
-            r = random.nextInt(3);
+            r = random.nextInt(4);
         }
 
         return r;

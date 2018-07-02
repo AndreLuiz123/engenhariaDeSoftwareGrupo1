@@ -3,11 +3,9 @@ package com.mygdx.game.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -21,15 +19,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Auxiliares.MostradorPerguntas;
-import com.mygdx.game.Auxiliares.Personagem;
 import com.mygdx.game.Auxiliares.Roleta;
 import com.mygdx.game.MyGdxGame;
 
 /**
- * Created by Andre Luiz on 26/06/2018.
+ * Created by Andre Luiz on 01/07/2018.
  */
 
-public class ModoGiraRoleta implements Screen {
+public class ModoDescubraPalavra implements Screen {
 
 
     MyGdxGame game;
@@ -39,8 +36,6 @@ public class ModoGiraRoleta implements Screen {
     private Skin skin;
     private Stage stage;
     private Texture background;
-    private TextureAtlas atlas;
-
     private World world;
     private Box2DDebugRenderer b2dr;
 
@@ -51,15 +46,12 @@ public class ModoGiraRoleta implements Screen {
     private MostradorPerguntas mostradorPerguntas;
 
     private boolean perdeu;
-    private boolean ganhou;
     private boolean menu;
-    private boolean podeGirarRoleta;
 
     private int pontuacao;
 
-    private Personagem personagem;
 
-    public ModoGiraRoleta(MyGdxGame game){
+    public ModoDescubraPalavra(MyGdxGame game){
 
 
         //Coisas essenciais de um level
@@ -72,12 +64,8 @@ public class ModoGiraRoleta implements Screen {
         stage = new Stage();
 
 
-
-        atlas = new TextureAtlas("personagensES.atlas");
-        personagem = new Personagem(this);
-
         //Coisas específicas do ModoGiraRoleta
-        roleta = new Roleta(world,this);
+
         mostradorPerguntas = new MostradorPerguntas(world, stage);
         perdeu = false;
 
@@ -89,12 +77,9 @@ public class ModoGiraRoleta implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(mostradorPerguntas.podeGirarRoleta){
-                    roleta.giraRoleta(5,1);
-                    mostradorPerguntas.trocando=true;
-                    mostradorPerguntas.voltaPerguntasAoNormal();
-                }
-
+                roleta.giraRoleta(5,1);
+                mostradorPerguntas.trocando=true;
+                mostradorPerguntas.voltaPerguntasAoNormal();
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -120,7 +105,7 @@ public class ModoGiraRoleta implements Screen {
             }
         });
 
-        mostradorPerguntas.criaBotao(roleta);
+      //  mostradorPerguntas.criaBotao();
 
         perdeuTudo = new Label("PERDEU!", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
@@ -128,102 +113,13 @@ public class ModoGiraRoleta implements Screen {
         stage.addActor(giraRoleta);
 
     }
-
-
-    public TextureAtlas getAtlas(){
-        return  atlas;
-    }
-
     @Override
-    public void show() {Gdx.input.setInputProcessor(stage);}
-
-
-    public void update(float delta){
-
-    //Permite que a roleta gire
-        world.step(1f / 60f, 6, 2);
-
-    //Troca perguntas
-      mostradorPerguntas.controlaPerguntas(roleta);
-      mostradorPerguntas.mudaAltEscolhida();
-      mostradorPerguntas.mudaPontuacao();
-      mostradorPerguntas.acertouOuErrouResposta();
-
-    //Acaba jogo
-        if(mostradorPerguntas.getPontuacao()<0){
-            perdeu = true;
-        }else{
-            if(mostradorPerguntas.pontuacaoObtida>=15){
-                ganhou = true;
-            }
-        }
-        perdeuTudo.setPosition(Gdx.graphics.getWidth()/2-Gdx.graphics.getWidth()/4,Gdx.graphics.getHeight()/2);
-
-        perdeuTudo.setFontScaleX(5);
-        perdeuTudo.setFontScaleY(5);
-
-        if(menu) {
-            game.setScreen(new MenuScreen(game));
-            dispose();
-            menu=false;
-        }
-
-        System.out.println(mostradorPerguntas.alternativa);
-
-
+    public void show() {
 
     }
 
     @Override
     public void render(float delta) {
-        update(delta);
-
-        if(!perdeu && !ganhou){
-
-            Gdx.gl.glClearColor(0, 0, 1, 0);
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-            game.batch.begin();
-            roleta.draw(game.batch);
-            game.batch.end();
-            b2dr.render(world, gameCam.combined);
-
-            stage.act();
-            stage.draw();
-        }else{
-
-            if(perdeu){
-                Gdx.gl.glClearColor(0, 0, 1, 0);
-                Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-                stage.clear();
-                stage.addActor(perdeuTudo);
-                stage.addActor(voltarMenu);
-                stage.act();
-                stage.draw();
-            }else{
-                if(ganhou){
-                    Gdx.gl.glClearColor(0, 0, 1, 0);
-                    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-                    perdeuTudo.setText("GANHOU!!");
-
-                    stage.clear();
-                    stage.addActor(perdeuTudo);
-                    stage.addActor(voltarMenu);
-                    stage.act();
-                    stage.draw();
-
-                }
-            }
-
-
-        }
-
-
-
-
-
 
     }
 
@@ -249,19 +145,10 @@ public class ModoGiraRoleta implements Screen {
 
     @Override
     public void dispose() {
-        stage.clear();
-        b2dr.dispose();
-        world.dispose();
-    }
-
-    public void disposeModoPreparado(){
 
     }
 
-    /*
-    *FUNÇÕES ADICIONAIS QUE TODOS OS NIVEIS POSSUIRÃO
-    *criaBotao()
-     */
+    public void criaTecla(char letra){
 
-
+    }
 }
