@@ -1,5 +1,6 @@
 package com.mygdx.game.Auxiliares;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -15,23 +16,25 @@ import com.mygdx.game.Screens.PlayScreen;
  */
 
 public class Personagem extends Sprite {
-    public World world;
-    private Animation personagem, paradoCostas, paradoLado;
-    private int S=64;
+
+    //private Animation personagem, paradoCostas, paradoLado;
+    private int S=100;
+    private float stateTimer=0;
+    private TextureRegion personagem;
 
     public Personagem(ModoGiraRoleta screen) {
 
         super(screen.getAtlas().findRegion("personagensEngSoft"));
 
-/*        Array<TextureRegion> frames = new Array<TextureRegion>();
+        personagem = new TextureRegion(getTexture(), 0, 0, S-30, S);
 
-        for (int i = 0; i < 9; i++) {
-            frames.add(new TextureRegion(getTexture(), S * i, S*10, S, S));
+    }
 
-        }
-        personagem = new Animation(0.1f, frames);
-        frames.clear();
+    public void update(float dt){
+        setRegion(personagem);
+        setBounds(Gdx.graphics.getWidth() - personagem.getRegionWidth()*3,0,150,150);
 
-  */      this.world = world;
+        //setRotation(40);
+
     }
 }
