@@ -42,7 +42,7 @@ public class Roleta extends Sprite {
 
         defineRoleta();
 
-        texturaDaRoleta = new Texture("jogarOpcao.png");
+  /*      texturaDaRoleta = new Texture("jogarOpcao.png");
 
 
 
@@ -54,7 +54,7 @@ public class Roleta extends Sprite {
         }
         personagem = new Animation(0.1f, frames);
         frames.clear();
-
+*/
     }
 
     public void defineRoleta() {

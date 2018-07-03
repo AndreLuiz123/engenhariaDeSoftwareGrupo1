@@ -23,7 +23,7 @@ public class Personagem extends Sprite {
 
         super(screen.getAtlas().findRegion("personagensEngSoft"));
 
-        Array<TextureRegion> frames = new Array<TextureRegion>();
+/*        Array<TextureRegion> frames = new Array<TextureRegion>();
 
         for (int i = 0; i < 9; i++) {
             frames.add(new TextureRegion(getTexture(), S * i, S*10, S, S));
@@ -32,6 +32,6 @@ public class Personagem extends Sprite {
         personagem = new Animation(0.1f, frames);
         frames.clear();
 
-        this.world = world;
+  */      this.world = world;
     }
 }

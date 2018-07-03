@@ -65,10 +65,7 @@ public class ModoGiraRoleta implements Screen {
         //Coisas essenciais de um level
         this.game = game;
         world = new World(new Vector2(0, 0), true);
-        b2dr = new Box2DDebugRenderer();
-        gameCam = new OrthographicCamera();
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),gameCam);
-        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stage = new Stage();
 
 
@@ -80,7 +77,7 @@ public class ModoGiraRoleta implements Screen {
         roleta = new Roleta(world,this);
         mostradorPerguntas = new MostradorPerguntas(world, stage);
         perdeu = false;
-
+        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         Button giraRoleta = new TextButton("Gira a Roleta", skin, "small");
         giraRoleta.setSize((Gdx.graphics.getWidth() / 5), (Gdx.graphics.getHeight() / 10));
@@ -184,7 +181,7 @@ public class ModoGiraRoleta implements Screen {
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             game.batch.begin();
-            roleta.draw(game.batch);
+           // roleta.draw(game.batch);
             game.batch.end();
             b2dr.render(world, gameCam.combined);
 
