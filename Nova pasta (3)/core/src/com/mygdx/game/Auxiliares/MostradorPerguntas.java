@@ -61,12 +61,12 @@ public class MostradorPerguntas extends Sprite {
     public String alternativa;
     public int pontuacaoObtida;
     public boolean respostaCerta;
-<<<<<<< HEAD
+
     public int cat;
 
-=======
+
     public boolean podeGirarRoleta;
->>>>>>> master
+
     public boolean trocando;
     public TextureAtlas atlas;
 

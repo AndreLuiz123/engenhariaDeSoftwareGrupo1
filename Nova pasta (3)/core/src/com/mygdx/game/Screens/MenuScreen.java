@@ -19,11 +19,6 @@ import com.mygdx.game.MyGdxGame;
 
 import java.util.logging.Handler;
 
-<<<<<<< HEAD
-
-=======
-//teste
->>>>>>> 5966ed96409f9a7d96de243a7b325b2b36b32c58
 public class MenuScreen implements Screen {
 
     MyGdxGame game;
@@ -36,14 +31,11 @@ public class MenuScreen implements Screen {
 
     boolean ajuda = false;
 
-    Sound sound = Gdx.audio.newSound(Gdx.files.internal("musica/force.mp3"));
-
 
 
     public MenuScreen(MyGdxGame game){
         this.game = game;
-        sound.play(1.0f);
-        sound.setLooping(500,true);
+
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         stageMenu();
@@ -194,7 +186,7 @@ public class MenuScreen implements Screen {
     public void dispose() {
         skin.dispose();
         stage.dispose();
-        sound.dispose();
+
     }
 
     public void mostrarCreditos(){

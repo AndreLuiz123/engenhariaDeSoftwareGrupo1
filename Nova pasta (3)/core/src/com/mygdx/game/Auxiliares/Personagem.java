@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.Screens.ModoDescubraPalavra;
 import com.mygdx.game.Screens.ModoGiraRoleta;
 import com.mygdx.game.Screens.PlayScreen;
 
@@ -20,15 +21,16 @@ public class Personagem extends Sprite {
     //private Animation personagem, paradoCostas, paradoLado;
     private int S=100;
     private float stateTimer=0;
-    private TextureRegion personagem;
+    private TextureRegion personagem, personagemSelecionado;
 
     public Personagem(ModoGiraRoleta screen) {
 
         super(screen.getAtlas().findRegion("personagensEngSoft"));
 
         personagem = new TextureRegion(getTexture(), 0, 0, S-30, S);
-
+        personagemSelecionado = new TextureRegion(getTexture(), 0, personagem.getRegionHeight(), S-30,S);
     }
+
 
     public void update(float dt){
         setRegion(personagem);
