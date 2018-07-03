@@ -47,6 +47,7 @@ public class PlayScreen  implements Screen {
     private float var;
 
     private GerenciadorPerguntas gerPerg;
+
     private Pergunta perg;
     private int resppergunta;
     private int catpergunta;
@@ -59,11 +60,12 @@ public class PlayScreen  implements Screen {
 
         girando = false;
 
+
         gameCam = new OrthographicCamera();
         //BOX2D
         world = new World(new Vector2(0, 0), true);
         b2dr = new Box2DDebugRenderer();
-        roleta = new Roleta(world);
+        //roleta = new Roleta(world);
 
 
         //BOTOES
@@ -212,28 +214,10 @@ public class PlayScreen  implements Screen {
     }
 
     public void update(float delta) {
-        world.step(1f / 60f, 6, 2);
-        System.out.println(roleta.b2body.getAngularVelocity());
-
-
-        if (modo == 2) {
-            disposeSelecaoPersonagem();
-            montaModoGiraRoleta();
-            modo = 4;
-        } else {
-            if (modo == 1) {
-                disposeSelecaoPersonagem();
-                montaModoGiraRoleta();
-                modo = 3;
-            }
+        if(modo == 1) {
+            game.setScreen(new ModoGiraRoleta(game));
+            dispose();
         }
-
-        if (modo == 3) {
-
-
-        }
-
-
     }
 
     @Override
@@ -266,7 +250,9 @@ public class PlayScreen  implements Screen {
         }
 
 
+
         b2dr.render(world, gameCam.combined);
+
 
 
     }
@@ -296,149 +282,4 @@ public class PlayScreen  implements Screen {
 
     }
 
-    public void montaModoGiraRoleta() {
-
-        resppergunta = 5;
-        final Button opA = new TextButton("A", skin, "small");
-        opA.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
-        opA.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)));
-        opA.addListener(new InputListener() {
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resppergunta = 0;
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        final Button opB = new TextButton("B", skin, "small");
-        opB.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
-        opB.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight());
-        opB.addListener(new InputListener() {
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resppergunta = 1;
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        final Button opC = new TextButton("C", skin, "small");
-        opC.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
-        opC.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2 * opC.getHeight());
-        opC.addListener(new InputListener() {
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resppergunta = 2;
-
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        final Button opD = new TextButton("D", skin, "small");
-        opD.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
-        opD.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 3 * opD.getHeight());
-        opD.addListener(new InputListener() {
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resppergunta = 3;
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-        catpergunta = 0;
-
-        switch (catpergunta){
-            case 0 : perg = gerPerg.geraPergunta0(); break;
-            case 1 : perg = gerPerg.geraPergunta1(); break;
-            case 2 : perg = gerPerg.geraPergunta2(); break;
-            case 3 : perg = gerPerg.geraPergunta3(); break;
-            default: break;
-        }
-
-        pergunta = new Label(perg.getTexto(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        pergunta.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 3)));
-        optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optA.setPosition(opA.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)));
-        optB = new Label(perg.getAltb(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optB.setPosition(opB.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight());
-        optC = new Label(perg.getAltc(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optC.setPosition(opC.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opC.getHeight() * 2);
-        optD = new Label(perg.getAltd(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        optD.setPosition(opD.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opD.getHeight() * 3);
-
-        if(perg.eRespostaCorreta(resppergunta)){
-            switch (resppergunta){
-                case 0: opA.setColor(0,0,1,1); break;
-                case 1: opB.setColor(0,0,1,1);break;
-                case 2: opC.setColor(0,0,1,1); break;
-                case 3: opD.setColor(0,0,1,1); break;
-            }
-        }else{
-            switch (resppergunta){
-                case 0: opA.setColor(1,0,0,1); break;
-                case 1: opB.setColor(1,0,0,1);break;
-                case 2: opC.setColor(1,0,0,1); break;
-                case 3: opD.setColor(1,0,0,1); break;
-            }
-        }
-
-        Button giraRoleta = new TextButton("Gira a Roleta", skin, "small");
-        giraRoleta.setSize((Gdx.graphics.getWidth() / 8), (Gdx.graphics.getHeight()) / 5);
-        giraRoleta.setPosition((Gdx.graphics.getWidth() / 2) - giraRoleta.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) - Gdx.graphics.getHeight() / 2);
-        giraRoleta.addListener(new InputListener() {
-
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                girando = true;
-                roleta.giraRoleta(15, 1);
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-            }
-        });
-
-
-        stage.addActor(giraRoleta);
-        stage.addActor(opA);
-        stage.addActor(opB);
-        stage.addActor(opC);
-        stage.addActor(opD);
-        stage.addActor(pergunta);
-        stage.addActor(optA);
-        stage.addActor(optB);
-        stage.addActor(optC);
-        stage.addActor(optD);
-
-    }
-
-
-    public void disposeSelecaoPersonagem() {
-        stage.clear();
-    }
 }
