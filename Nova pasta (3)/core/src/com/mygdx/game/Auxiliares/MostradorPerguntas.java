@@ -100,7 +100,7 @@ public class MostradorPerguntas extends Sprite {
         perg.marcarFeita();
 
         resposta = 10;
-        pontuacaoObtida = 0;
+        pontuacaoObtida = 5;
 
         trocando = false;
 
@@ -369,7 +369,7 @@ public class MostradorPerguntas extends Sprite {
 
                 acertouResposta(perg.getAltcorreta());
                 errouResposta(resposta);
-                pontuacaoObtida--;
+                pontuacaoObtida-=3;
 
             }
 
@@ -405,16 +405,16 @@ public class MostradorPerguntas extends Sprite {
 
         switch (respostaC) {
             case 0:
-                optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optA.setText("");
                 break;
             case 1:
-                optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optB.setText("");
                 break;
             case 2:
-                optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optC.setText("");
                 break;
             case 3:
-                optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optD.setText("");
                 break;
         }
     }

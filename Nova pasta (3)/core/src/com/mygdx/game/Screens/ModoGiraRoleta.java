@@ -45,7 +45,9 @@ public class ModoGiraRoleta implements Screen {
     private Box2DDebugRenderer b2dr;
 
     private Label perdeuTudo;
-    private Button voltarMenu;
+    private Button voltarMenu, pause;
+    private Pause pausado;
+    private boolean pauseGame;
 
     private Roleta roleta;
     private MostradorPerguntas mostradorPerguntas;
@@ -119,13 +121,31 @@ public class ModoGiraRoleta implements Screen {
             }
         });
 
+        pause = new TextButton("Pause", skin, "small");
+        pause.setPosition(0, ((Gdx.graphics.getHeight() / 2) - (Gdx.graphics.getHeight() / 4)));
+        pause.addListener(new InputListener() {
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                pauseGame=true;
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+
+
         mostradorPerguntas.criaBotao(roleta);
 
         perdeuTudo = new Label("PERDEU!", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
 
         stage.addActor(giraRoleta);
-
+      //  stage.addActor(pause);
     }
 
 
@@ -152,7 +172,7 @@ public class ModoGiraRoleta implements Screen {
         if(mostradorPerguntas.getPontuacao()<0){
             perdeu = true;
         }else{
-            if(mostradorPerguntas.pontuacaoObtida>=15){
+            if(mostradorPerguntas.pontuacaoObtida>=10){
                 ganhou = true;
             }
         }
@@ -182,7 +202,7 @@ public class ModoGiraRoleta implements Screen {
     public void render(float delta) {
         update(delta);
 
-        if(!perdeu && !ganhou){
+        if(!perdeu && !ganhou && !pauseGame){
 
             Gdx.gl.glClearColor(0, 0, 1, 0);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -219,6 +239,7 @@ public class ModoGiraRoleta implements Screen {
                     stage.draw();
 
                 }
+
             }
 
 
