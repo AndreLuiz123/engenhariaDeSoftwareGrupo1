@@ -67,18 +67,19 @@ public class ModoGiraRoleta implements Screen {
         world = new World(new Vector2(0, 0), true);
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),gameCam);
         stage = new Stage();
-
+        b2dr = new Box2DDebugRenderer();
+       gameCam = new OrthographicCamera();
+        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
 
         atlas = new TextureAtlas("personagensES.atlas");
         personagem = new Personagem(this);
 
-        b2dr = new Box2DDebugRenderer();
         //Coisas específicas do ModoGiraRoleta
         roleta = new Roleta(world,this);
         mostradorPerguntas = new MostradorPerguntas(world, stage);
         perdeu = false;
-        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+
 
         Button giraRoleta = new TextButton("Gira a Roleta", skin, "small");
         giraRoleta.setSize((Gdx.graphics.getWidth() / 5), (Gdx.graphics.getHeight() / 10));
