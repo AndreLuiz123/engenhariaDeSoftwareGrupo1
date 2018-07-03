@@ -240,11 +240,11 @@ public class MenuScreen implements Screen {
     }
 
     public void mostrarAjuda(){
-        Label texto = new Label("   Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore \n" +
-                "magna aliqua. Ut enim ad minim veniam, quis nostrud \n" +
-                "exercitation ullamco laboris nisi ut aliquip ex ea \n" +
-                "commodo consequat. Duis aute irure dolor in reprehenderit \n" +
+        Label texto = new Label("Modo Gira a Roleta: \n" +
+                "Objetivo é fazer 10 pontos\n" +
+                "Acertar a alternativa te da 1 ponto e errar te faz perder 1 ponto\n" +
+                "Você pode usar o pular pergunta 2 vezes\n" +
+                "Você pode usar o ajuda 50/50 até 3 vezes \n" +
                 "in voluptate velit esse cillum dolore eu fugiat nulla \n" +
                 "pariatur. Excepteur sint occaecat cupidatat non proident,\n" +
                 "sunt in culpa qui officia deserunt mollit anim id est laborum.",skin,"big");
