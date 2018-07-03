@@ -79,6 +79,15 @@ public class MostradorPerguntas extends Sprite {
         gerenciadorPerguntas = new GerenciadorPerguntas();
 
         perg = gerenciadorPerguntas.geraPergunta0();
+        while(perg.isFeita() && gerenciadorPerguntas.restaPerguntas0()){
+            perg = gerenciadorPerguntas.geraPergunta0();
+        }
+        
+        if(perg == null){
+            perg = gerenciadorPerguntas.getPerguntaNeutra();
+        }
+
+        perg.marcarFeita();
 
         resposta = 10;
         pontuacaoObtida = 0;
@@ -87,7 +96,7 @@ public class MostradorPerguntas extends Sprite {
 
         pergunta = new Label(perg.getTexto(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+            optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optB = new Label(perg.getAltb(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optC = new Label(perg.getAltc(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optD = new Label(perg.getAltd(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -190,7 +199,7 @@ public class MostradorPerguntas extends Sprite {
 
 
         optB.setPosition(opB.getX() + opB.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - Gdx.graphics.getHeight()/20);
-        opB.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
+            opB.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opB.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight());
         opB.addListener(new InputListener() {
 

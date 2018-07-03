@@ -124,4 +124,49 @@ public class GerenciadorPerguntas {
         return perguntaNeutra;
     }
 
+    public boolean restaPerguntas0(){
+        for(int i=0;i<perguntascat0.size();i++){
+            if(!perguntascat0.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas1(){
+        for(int i=0;i<perguntascat1.size();i++){
+            if(!perguntascat1.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas2(){
+        for(int i=0;i<perguntascat2.size();i++){
+            if(!perguntascat2.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas3(){
+        for(int i=0;i<perguntascat3.size();i++){
+            if(!perguntascat3.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas4(){
+        for(int i=0;i<perguntascat4.size();i++){
+            if(!perguntascat4.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
