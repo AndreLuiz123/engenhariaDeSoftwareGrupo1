@@ -172,6 +172,7 @@ public class ModoGiraRoleta implements Screen {
     personagem.update(delta);
     roleta.update();
    // personagem.rotate(roleta.b2body.getAngularVelocity() );
+        roleta.rotate(roleta.b2body.getAngularVelocity());
        // roleta.rotate(roleta.b2body.getAngularVelocity());
 
     }
@@ -231,7 +232,7 @@ public class ModoGiraRoleta implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width,height);
     }
 
     @Override

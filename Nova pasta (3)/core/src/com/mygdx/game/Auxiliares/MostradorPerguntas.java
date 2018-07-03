@@ -61,7 +61,12 @@ public class MostradorPerguntas extends Sprite {
     public String alternativa;
     public int pontuacaoObtida;
     public boolean respostaCerta;
+
+    public int cat;
+
+
     public boolean podeGirarRoleta;
+
     public boolean trocando;
     public TextureAtlas atlas;
 
@@ -82,7 +87,17 @@ public class MostradorPerguntas extends Sprite {
 
         gerenciadorPerguntas = new GerenciadorPerguntas();
 
-        perg = gerenciadorPerguntas.geraPergunta0();
+        cat = 0;
+        perg = gerenciadorPerguntas.geraPergunta(cat);
+        while(perg.isFeita() && gerenciadorPerguntas.restaPerguntas0()){
+            perg = gerenciadorPerguntas.geraPergunta(cat);
+        }
+
+        if(perg == null){
+            perg = gerenciadorPerguntas.getPerguntaNeutra();
+        }
+
+        perg.marcarFeita();
 
         resposta = 10;
         pontuacaoObtida = 0;
@@ -91,7 +106,7 @@ public class MostradorPerguntas extends Sprite {
 
         pergunta = new Label(perg.getTexto(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+            optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optB = new Label(perg.getAltb(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optC = new Label(perg.getAltc(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optD = new Label(perg.getAltd(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -176,7 +191,7 @@ public class MostradorPerguntas extends Sprite {
         pergunta.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 3)));
 
 
-        optA.setPosition(opA.getX() + opA.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) + opA.getHeight() / 4);
+        optA.setPosition(opA.getX() + opA.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) + ((Gdx.graphics.getHeight() / 22)));
         opA.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opA.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)));
         opA.addListener(new InputListener() {
@@ -199,8 +214,8 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-        optB.setPosition(opB.getX() + opB.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight() / 2);
-        opB.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
+        optB.setPosition(opB.getX() + opB.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - Gdx.graphics.getHeight()/20);
+            opB.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opB.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight());
         opB.addListener(new InputListener() {
 
@@ -220,7 +235,7 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-        optC.setPosition(opC.getX() + opC.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2.5f * opC.getHeight() / 2);
+        optC.setPosition(opC.getX() + opC.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2.5f * opD.getHeight());
         opC.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opC.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2 * opC.getHeight());
         opC.addListener(new InputListener() {
@@ -241,7 +256,7 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-        optD.setPosition(opD.getX() + opD.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 4 * opD.getHeight() / 2);
+        optD.setPosition(opD.getX() + opD.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - Gdx.graphics.getHeight()/4);
         opD.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opD.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 3 * opD.getHeight());
         opD.addListener(new InputListener() {
