@@ -73,6 +73,7 @@ public class ModoGiraRoleta implements Screen {
         atlas = new TextureAtlas("personagensES.atlas");
         personagem = new Personagem(this);
 
+        b2dr = new Box2DDebugRenderer();
         //Coisas específicas do ModoGiraRoleta
         roleta = new Roleta(world,this);
         mostradorPerguntas = new MostradorPerguntas(world, stage);
