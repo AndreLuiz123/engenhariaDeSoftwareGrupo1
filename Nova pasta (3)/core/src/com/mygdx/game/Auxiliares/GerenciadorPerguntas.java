@@ -50,6 +50,21 @@ public class GerenciadorPerguntas {
                 "sequencia", "classe", "caso de uso", 2));
         perguntascat2.add(new Pergunta("Qual dessas alternativas apresenta um exemplo de diagrama de estruturas da UML?", "Diagrama de implatacao",
                 "Diagrama de atividades", "Diagrama de caso de uso", "Diagrama de sequencia", 2));
+
+        perguntascat3.add(new Pergunta("Assinale a alternativa incorreta a respeito de modelos de maturidade:", "Determinam a maneira como algo deve ser feito durante o processo de desenvolvimento de software",
+                "São compatíveis com métodos ágeis", "Têm o propósito de guiar empresas na busca por qualidade", "Determinam o que deve ser feito durante o processo de desenvolvimento de software", 1));
+        perguntascat3.add(new Pergunta("Assinale a alternativa correta a respeito de processos de software:", "Em um processo capaz o desempenho futuro é igual ao desempenho passado",
+                "Em um processo estável o desempenho deve atender às demandas do cliente", "Um processo capaz é mais lento do que um processo estável", "Um processo estável permite prever o desempenho futuro com base no desempenho passado", 4));
+        perguntascat3.add(new Pergunta("Assinale a alternativa correta a respeito dos modelos de maturidade em uso no Brasil:", "O CMMI somente mede a capacidade de processos coletivos.",
+                "O CMMI somente mede a capacidade de processos individuais", "O MPS.BR possui a vantagem em relação ao CMMI de possuir menos degraus intermediários, diminuindo significativamente o custo", "O MPS.BR tem foco nas pequenas e médias empresas brasileiras", 4));
+
+        perguntascat4.add(new Pergunta("Assinale a alternativa correta a respeito da gerência de projetos", "O planejamento do projeto deve ser feito antes do estabelecimento de um cronogama",
+                "A definição do escopo e dos objetivos do projeto deve ser feita após o planejamento", "A definição do escopo é a primeira atividade no planejamento de projetos", "O cronograma pode ser estabelecido com base na técnica de pontos por função", 3));
+        perguntascat4.add(new Pergunta("Assinale a alternativa incorreta a respeito de riscos no planejamento de software", "Riscos de estimativas são relacionados à tentativa de desenvolvimento de um software em menos tempo do que o necessário",
+                "Riscos do processo são relacionados a métodos e ferramentas", "Riscos organizacionais são relacionados a problemas relacionados a hardware", "Riscos de requisitos são relacionados a propostas de mudanças nos requisitos de software", 3));
+        perguntascat4.add(new Pergunta("Assinale a alternativa correta a respeito de tipos de manutenção de software", "A manutenção corretiva incorpora novas funcionalidades e ampliações solicitadas pelos usuários",
+                "A manutenção preventiva tem o propósito de melhorar a confiabilidade ou manutenibilidade futura", "A manutenção adaptativa inclui a correção de erros não detectados na fase de teste", "A manutenção perfectiva tem o propósito de melhorar a confiabilidade ou manutenibilidade futura", 2));
+
     }
 
     public Pergunta geraPergunta(int cat){
