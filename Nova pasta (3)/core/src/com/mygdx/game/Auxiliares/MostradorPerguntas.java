@@ -58,9 +58,19 @@ public class MostradorPerguntas extends Sprite {
     public Label optD;
     public Label optSelecionada;
     public Label pontuacao;
+
     public String alternativa;
     public int pontuacaoObtida;
     public boolean respostaCerta;
+    public int cat;
+
+    public int aux50;
+    public int auxpula;
+    public int blockq1;
+    public int blockq2;
+    public int aux50perg;
+
+
     public boolean podeGirarRoleta;
     public boolean trocando;
     public TextureAtlas atlas;
@@ -79,10 +89,25 @@ public class MostradorPerguntas extends Sprite {
 
         alternativa = "";
         respostaCerta = false;
+        this.aux50 = 0;
+        this.aux50perg = 0;
+        this.blockq1 = -1;
+        this.blockq2 = -1;
+        this.auxpula = 0;
 
         gerenciadorPerguntas = new GerenciadorPerguntas();
 
-        perg = gerenciadorPerguntas.geraPergunta0();
+        cat = 0;
+        perg = gerenciadorPerguntas.geraPergunta(cat);
+        while(perg.isFeita() && gerenciadorPerguntas.restaPergunta(cat)){
+            perg = gerenciadorPerguntas.geraPergunta(cat);
+        }
+
+        if(perg == null || perg.isFeita()){
+            perg = gerenciadorPerguntas.getPerguntaNeutra();
+        }
+
+        perg.marcarFeita();
 
         resposta = 10;
         pontuacaoObtida = 0;
@@ -91,10 +116,11 @@ public class MostradorPerguntas extends Sprite {
 
         pergunta = new Label(perg.getTexto(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+            optA = new Label(perg.getAlta(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optB = new Label(perg.getAltb(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optC = new Label(perg.getAltc(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         optD = new Label(perg.getAltd(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+
 
         optSelecionada = new Label("Opção:" + alternativa, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         pontuacao = new Label("Pontuação:" + pontuacaoObtida, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -106,7 +132,7 @@ public class MostradorPerguntas extends Sprite {
         opD = new TextButton("D", skin, "small");
         optSelecionadaBtn = new TextButton("Confirmar Resposta", skin, "small");
         pulaPergunta = new TextButton("Pula pergunta", skin, "small");
-        ajudaAmigo = new TextButton("Ajuda de amigo", skin, "small");
+        ajudaAmigo = new TextButton("50/50", skin, "small");
     }
 
     public void controlaPerguntas(Roleta roleta) {
@@ -115,7 +141,16 @@ public class MostradorPerguntas extends Sprite {
             if (roleta.b2body.getAngularVelocity() == 0) {
                 podeGirarRoleta = false;
                 if (roleta.getAngularPosition() > 0 && roleta.getAngularPosition() <= 90) {
-                    perg = gerenciadorPerguntas.geraPergunta0();
+                    perg = gerenciadorPerguntas.geraPergunta(cat);
+                    while(perg.isFeita() && gerenciadorPerguntas.restaPergunta(cat)){
+                        perg = gerenciadorPerguntas.geraPergunta(cat);
+                    }
+
+                    if(perg == null || perg.isFeita()){
+                        perg = gerenciadorPerguntas.getPerguntaNeutra();
+                    }
+                    perg.marcarFeita();
+
                     mudaPergunta(perg.getTexto(), perg.getAlta(), perg.getAltb(), perg.getAltc(), perg.getAltd());
 
                 } else {
@@ -150,6 +185,7 @@ public class MostradorPerguntas extends Sprite {
 
     public void mudaPergunta(String pergunta, String A, String B, String C, String D) {
         this.pergunta.setText(pergunta);
+        aux50perg = 0;
         optA.setText(A);
         optB.setText(B);
         optC.setText(C);
@@ -176,7 +212,7 @@ public class MostradorPerguntas extends Sprite {
         pergunta.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 3)));
 
 
-        optA.setPosition(opA.getX() + opA.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) + opA.getHeight() / 4);
+        optA.setPosition(opA.getX() + opA.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) + ((Gdx.graphics.getHeight() / 22)));
         opA.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opA.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)));
         opA.addListener(new InputListener() {
@@ -184,7 +220,7 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(roleta.b2body.getAngularVelocity()==0){
+                if (roleta.b2body.getAngularVelocity() == 0 && blockq1 != 0 && blockq2 != 0) {
                     resposta = 0;
                     alternativa = "A";
                 }
@@ -199,14 +235,14 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-        optB.setPosition(opB.getX() + opB.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight() / 2);
+        optB.setPosition(opB.getX() + opB.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - Gdx.graphics.getHeight() / 20);
         opB.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opB.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight());
         opB.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(roleta.b2body.getAngularVelocity()==0){
+                if (roleta.b2body.getAngularVelocity() == 0 && blockq1 != 1 && blockq2 != 1) {
                     resposta = 1;
                     alternativa = "B";
                 }
@@ -220,14 +256,14 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-        optC.setPosition(opC.getX() + opC.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2.5f * opC.getHeight() / 2);
+        optC.setPosition(opC.getX() + opC.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2.5f * opD.getHeight());
         opC.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opC.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 2 * opC.getHeight());
         opC.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(roleta.b2body.getAngularVelocity()==0){
+                if (roleta.b2body.getAngularVelocity() == 0 && blockq1 != 2 && blockq2 != 2) {
                     resposta = 2;
                     alternativa = "C";
                 }
@@ -241,14 +277,14 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-        optD.setPosition(opD.getX() + opD.getWidth() / 2, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 4 * opD.getHeight() / 2);
+        optD.setPosition(opD.getX() + opD.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - Gdx.graphics.getHeight() / 4);
         opD.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         opD.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 3 * opD.getHeight());
         opD.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(roleta.b2body.getAngularVelocity()==0){
+                if (roleta.b2body.getAngularVelocity() == 0 && blockq1 != 3 && blockq2 != 3) {
                     resposta = 3;
                     alternativa = "D";
                 }
@@ -269,10 +305,12 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(alternativa!=""){
+                if (alternativa != "") {
                     podeGirarRoleta = true;
                     respostaCerta = true;
                 }
+                blockq2 = -1;
+                blockq1 = -1;
 
                 return super.touchDown(event, x, y, pointer, button);
             }
@@ -283,15 +321,18 @@ public class MostradorPerguntas extends Sprite {
             }
         });
 
-        pulaPergunta.setPosition(Gdx.graphics.getWidth()- 2*pontuacao.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight() / 2);
+        pulaPergunta.setPosition(Gdx.graphics.getWidth() - 2 * pontuacao.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - opB.getHeight() / 2);
         pulaPergunta.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         pulaPergunta.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                perg = gerenciadorPerguntas.pulaPergunta(0);
-                mudaPergunta(perg.getTexto(),perg.getAlta(),perg.getAltb(),perg.getAltc(),perg.getAltd());
-                pontuacaoObtida--;
+                if (auxpula < 2) {
+                    perg = gerenciadorPerguntas.pulaPergunta(cat);
+                    mudaPergunta(perg.getTexto(), perg.getAlta(), perg.getAltb(), perg.getAltc(), perg.getAltd());
+                    //pontuacaoObtida--;
+                }
+                auxpula++;
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -301,13 +342,17 @@ public class MostradorPerguntas extends Sprite {
             }
         });
 
-        ajudaAmigo.setPosition(Gdx.graphics.getWidth()- 2*pontuacao.getWidth(),((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 3 * opC.getHeight() / 2);
+        ajudaAmigo.setPosition(Gdx.graphics.getWidth() - 2 * pontuacao.getWidth(), ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 5)) - 3 * opC.getHeight() / 2);
         ajudaAmigo.setSize((Gdx.graphics.getWidth() / 15), (Gdx.graphics.getHeight()) / 10);
         ajudaAmigo.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                coloreRespostaErrada();
+                if (aux50 <= 3 && aux50perg ==0) {
+                    coloreRespostaErrada();
+                }
+                aux50++;
+                aux50perg = 1;
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -318,9 +363,7 @@ public class MostradorPerguntas extends Sprite {
         });
 
 
-
-
-        pontuacao.setPosition(Gdx.graphics.getWidth() - 4*pontuacao.getWidth(),Gdx.graphics.getHeight()-2*pontuacao.getHeight());
+        pontuacao.setPosition(Gdx.graphics.getWidth() - 4 * pontuacao.getWidth(), Gdx.graphics.getHeight() - 2 * pontuacao.getHeight());
 
         pontuacao.setFontScaleX(3);
         pontuacao.setFontScaleY(3);
@@ -385,21 +428,49 @@ public class MostradorPerguntas extends Sprite {
     public void coloreRespostaErrada(){
 
         int respostaC;
+        int respD;
 
         respostaC = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
+        respD = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
+        while(respostaC == respD){
+            respD = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
+        }
 
         switch (respostaC) {
             case 0:
                 optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq1 = 0;
                 break;
             case 1:
                 optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq1 = 1;
                 break;
             case 2:
                 optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq1 = 2;
                 break;
             case 3:
                 optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq1 = 3;
+                break;
+        }
+
+        switch (respD) {
+            case 0:
+                optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq2 = 0;
+                break;
+            case 1:
+                optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq2 = 1;
+                break;
+            case 2:
+                optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq2 = 2;
+                break;
+            case 3:
+                optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                blockq2 = 3;
                 break;
         }
     }

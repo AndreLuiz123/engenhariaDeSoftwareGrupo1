@@ -19,7 +19,7 @@ import com.mygdx.game.MyGdxGame;
 
 import java.util.logging.Handler;
 
-
+//teste
 public class MenuScreen implements Screen {
 
     MyGdxGame game;
@@ -195,28 +195,11 @@ public class MenuScreen implements Screen {
 
     public void mostrarCreditos(){
 
-        /*Label texto = new Label("Lorem ipsum dolor sit amet, consectetur adipisicing elit," +
-                " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad " +
-                "minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " +
-                "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit " +
-                "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " +
-                "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",skin,"small");
-
-        texto.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
-        texto.setPosition(Gdx.graphics.getWidth()/2 - texto.getWidth()/1.3f,Gdx.graphics.getHeight()/2);
-
-        Button voltar = new TextButton("voltar ao menu",skin,"small");
-        voltar.setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/10);
-        voltar.setPosition(((Gdx.graphics.getWidth()/2)-voltar.getWidth()/2),((Gdx.graphics.getHeight()/2)-voltar.getHeight()));
-
-        */
-
         Label texto2 = new Label("Andre Luiz Vasconcelos Ferreira\n" +
                 "Jose Santos Sa Carvalho\n" +
                 "Leonardo Nunes Aragao \n" +
                 "Matheus Franklin Rodrigues Silva \n"
                ,skin,"big");
-     //   texto.setStyle( new Label.LabelStyle(new BitmapFont(), Color.GOLD));
         texto2.setFontScale(0.45f);
         texto2.setSize(300,Gdx.graphics.getHeight()/2);
         texto2.setPosition(50,Gdx.graphics.getHeight()/2);
@@ -249,10 +232,11 @@ public class MenuScreen implements Screen {
                 "2.1 Gira a Roleta: Selecione as respostas corretas, e confirme usando o botao.\n" +
                 "-- Voce começa com 5 pontos\n" +
                 "-- Gire a Roleta para selecionar a categoria da proxima pergunta. \n" +
-                "-- Ganhe 1 ponto por resposta correta e perca 3 por resposta errada.  \n" +
-                "-- Se nao souber a resposta, pode pular a pergunta (so pode pular 2 vezes. \n" +
+                "-- Ganhe 1 ponto por resposta correta e perca 1 por resposta errada.  \n" +
+                "-- Se nao souber a resposta, pode pular a pergunta (so pode pular 2 vezes). \n" +
                 "-- Peca ajuda a amigos, apagando duas respostas erradas. So pode usar 3 vezes durante o jogo. \n" +
-                "-- Atinja 15 pontos para ganhar; Se chegar a 0, voce perde.",skin,"big");
+                "-- Atinja 10 pontos para ganhar; Se chegar a 0, voce perde.",skin,"big");
+
         texto.setFontScale(0.45f);
         texto.setSize(300,Gdx.graphics.getHeight()/2);
         texto.setPosition(50,Gdx.graphics.getHeight()/2);
