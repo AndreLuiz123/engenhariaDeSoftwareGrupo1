@@ -44,12 +44,35 @@ public class GerenciadorPerguntas {
                 "Falta de qualidade no produto final", "Maior quantidade de codigos de programacao", "Maior gasto de tempo", 0));
         perguntascat1.add(new Pergunta("Qual dessas ferramentas CASE nao e uma ferramenta de banco de dados", "Oracle",
                 "MySQL", "Xplanner", "Postgres", 2));
+        perguntascat1.add(new Pergunta("A maioria das ferramentas CASE concentra-se no(a)", "Banco de Dados",
+                "Documentação", "Gerenciamento de Projetos", "Suporte", 3));
+        perguntascat1.add(new Pergunta("Fatores de risco da ampla adoção de ferramentas CASE por organizações incluem", "Padronização inadequada",
+                "Expectativas irrealistas", "Controle de processos inadequado", "Todas as alternativas acima", 4));
+        perguntascat1.add(new Pergunta("Integração e testes de software pode ser divididos em 4 categorias. Assinale a alternativa que as representa corretamente.", "Aquisição de dados, Análise estatística dos dados, Medição Contínua e Medição Estática",
+                "Aquisição de dados, Medição Estática, Medição Dinâmica, e Gerenciamento de teste", "Medição Estática, Medição Contínua, Medição Dinâmica e Simulação", "Gerenciamento de dados, Medição Estática, Análise estatística dos dados, e Medição Dinâmica", 2));
+
+
         perguntascat2.add(new Pergunta("Qual dessas alternativas nao configura um Diagrama estrutural UML?", "Diagrama de classes",
                 "Diagrama de codigo", "Diagrama de sequencia", "Diagrama de caso de uso", 1));
         perguntascat2.add(new Pergunta("O Diagrama da UML que representa o comportamento interno de determinado objeto, subsistema ou sistema global denomina-se diagrama de?", "estado",
                 "sequencia", "classe", "caso de uso", 2));
         perguntascat2.add(new Pergunta("Qual dessas alternativas apresenta um exemplo de diagrama de estruturas da UML?", "Diagrama de implatacao",
                 "Diagrama de atividades", "Diagrama de caso de uso", "Diagrama de sequencia", 2));
+
+        perguntascat3.add(new Pergunta("Assinale a alternativa incorreta a respeito de modelos de maturidade:", "Determinam a maneira como algo deve ser feito durante o processo de desenvolvimento de software",
+                "São compatíveis com métodos ágeis", "Têm o propósito de guiar empresas na busca por qualidade", "Determinam o que deve ser feito durante o processo de desenvolvimento de software", 1));
+        perguntascat3.add(new Pergunta("Assinale a alternativa correta a respeito de processos de software:", "Em um processo capaz o desempenho futuro é igual ao desempenho passado",
+                "Em um processo estável o desempenho deve atender às demandas do cliente", "Um processo capaz é mais lento do que um processo estável", "Um processo estável permite prever o desempenho futuro com base no desempenho passado", 4));
+        perguntascat3.add(new Pergunta("Assinale a alternativa correta a respeito dos modelos de maturidade em uso no Brasil:", "O CMMI somente mede a capacidade de processos coletivos.",
+                "O CMMI somente mede a capacidade de processos individuais", "O MPS.BR possui a vantagem em relação ao CMMI de possuir menos degraus intermediários, diminuindo significativamente o custo", "O MPS.BR tem foco nas pequenas e médias empresas brasileiras", 4));
+
+        perguntascat4.add(new Pergunta("Assinale a alternativa correta a respeito da gerência de projetos", "O planejamento do projeto deve ser feito antes do estabelecimento de um cronogama",
+                "A definição do escopo e dos objetivos do projeto deve ser feita após o planejamento", "A definição do escopo é a primeira atividade no planejamento de projetos", "O cronograma pode ser estabelecido com base na técnica de pontos por função", 3));
+        perguntascat4.add(new Pergunta("Assinale a alternativa incorreta a respeito de riscos no planejamento de software", "Riscos de estimativas são relacionados à tentativa de desenvolvimento de um software em menos tempo do que o necessário",
+                "Riscos do processo são relacionados a métodos e ferramentas", "Riscos organizacionais são relacionados a problemas relacionados a hardware", "Riscos de requisitos são relacionados a propostas de mudanças nos requisitos de software", 3));
+        perguntascat4.add(new Pergunta("Assinale a alternativa correta a respeito de tipos de manutenção de software", "A manutenção corretiva incorpora novas funcionalidades e ampliações solicitadas pelos usuários",
+                "A manutenção preventiva tem o propósito de melhorar a confiabilidade ou manutenibilidade futura", "A manutenção adaptativa inclui a correção de erros não detectados na fase de teste", "A manutenção perfectiva tem o propósito de melhorar a confiabilidade ou manutenibilidade futura", 2));
+
     }
 
 

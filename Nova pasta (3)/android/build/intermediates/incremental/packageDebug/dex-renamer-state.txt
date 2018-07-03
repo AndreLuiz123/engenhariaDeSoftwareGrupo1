@@ -1,4 +1,0 @@
-#Mon Jul 02 10:34:17 BRT 2018
-base.0=C\:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

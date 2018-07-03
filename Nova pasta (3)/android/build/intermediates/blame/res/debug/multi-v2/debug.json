@@ -1,17 +1,34 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "/home/josecarvalho/git_workspace/engenhariaDeSoftwareGrupo1/Nova pasta (3)/android/build/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\styles.xml",
+                    "source": "/home/josecarvalho/git_workspace/engenhariaDeSoftwareGrupo1/Nova pasta (3)/android/res/values/strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endColumns": "48",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                },
+                {
+                    "source": "/home/josecarvalho/git_workspace/engenhariaDeSoftwareGrupo1/Nova pasta (3)/android/res/values/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "19",
+                        "startOffsets": "17",
                         "endLines": "9",
                         "endColumns": "12",
-                        "endOffsets": "484"
+                        "endOffsets": "475"
                     },
                     "to": {
                         "startLines": "3",
@@ -20,23 +37,6 @@
                         "endLines": "10",
                         "endColumns": "12",
                         "endOffsets": "562"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "59",
-                        "endColumns": "48",
-                        "endOffsets": "103"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "48",
-                        "endOffsets": "99"
                     }
                 }
             ]
