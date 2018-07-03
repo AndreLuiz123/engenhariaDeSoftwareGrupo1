@@ -75,7 +75,7 @@ public class MostradorPerguntas extends Sprite {
     public boolean trocando;
     public TextureAtlas atlas;
 
-
+    //teste
 
     public MostradorPerguntas(World world, Stage stage) {
         this.world = world;
