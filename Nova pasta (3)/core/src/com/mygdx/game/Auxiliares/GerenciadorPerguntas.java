@@ -9,6 +9,8 @@ public class GerenciadorPerguntas {
     private ArrayList<Pergunta> perguntascat2; //Perguntas de diagramas uml
     private ArrayList<Pergunta> perguntascat3; //Perguntas de qualidade de software
     private ArrayList<Pergunta> perguntascat4; //Perguntas de gerencia de projetos
+    private Pergunta perguntaNeutra;
+    private String alternativa;
 
     Random random;
     int al;
@@ -22,14 +24,17 @@ public class GerenciadorPerguntas {
         random = new Random();
 
         //Banco de Dados: kkkkk
+
+        perguntaNeutra = new Pergunta("","","","","",10);
+
         perguntascat0.add(new Pergunta("Qual dessas nao e uma tecnica de levantamento de dados?", "Observacao pessoal",
                 "Entrevista", "Seminario", "Conversa Casual", 3));
         perguntascat0.add(new Pergunta("Qual dessas nao e uma vantagem do uso de questionarios?", "Agilidade no processo",
                 "Aplicacao facil", "Uniformidade na mensuracao", "Obtencao de informacao detalhada", 3));
         perguntascat0.add(new Pergunta("Qual dessas alternativas e uma vantagem da Observacao Pessoal?", "Oferece evidências formais",
                 "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas", "Uniformidade na mensuracao", 1));
-        perguntascat0.add(new Pergunta("A tecnica de levantamento de dados pode ser dividida em 4 fases. Assinale a alternativa que as enumera em ordem correta:", "Oferece evidências formais",
-                "Nao exige disponibilidade de tempo do cliente", "Aplicado a um alto numero de pessoas", "Uniformidade na mensuracao", 1));
+        perguntascat0.add(new Pergunta("A tecnica de levantamento de dados pode ser dividida em 4 fases. Assinale a alternativa que as enumera em ordem correta:", "preparação, prototipação, correção e documentação",
+                "definição, programação, realização, e organização", "preparação, realização, interpretação e conclusão", "prototipação, organização, correção e conclusão", 2));
 
         perguntascat1.add(new Pergunta("Qual dessas ferramentas CASE e indicada para Gerencia de Projetos?", "CVS",
                 "Git", "Google Code", "Oracle", 2));
@@ -47,6 +52,44 @@ public class GerenciadorPerguntas {
                 "Diagrama de atividades", "Diagrama de caso de uso", "Diagrama de sequencia", 2));
     }
 
+    public Pergunta geraPergunta(int cat){
+        switch (cat){
+            case 0:
+                if (perguntascat0.size() > 0) {
+                    al = random.nextInt(perguntascat0.size());
+                    return perguntascat0.get(al);
+                }
+                break;
+            case 1:
+                if (perguntascat1.size() > 0) {
+                    al = random.nextInt(perguntascat1.size());
+                    return perguntascat1.get(al);
+                }
+                break;
+            case 2:
+                if (perguntascat2.size() > 0) {
+                    al = random.nextInt(perguntascat2.size());
+                    return perguntascat2.get(al);
+                }
+                break;
+            case 3:
+                if (perguntascat3.size() > 0) {
+                    al = random.nextInt(perguntascat3.size());
+                    return perguntascat3.get(al);
+                }
+                break;
+            case 4:
+                if (perguntascat2.size() > 0) {
+                    al = random.nextInt(perguntascat2.size());
+                    return perguntascat2.get(al);
+                }
+                break;
+                default: break;
+
+
+        }
+        return perguntaNeutra;
+    }
 
     public Pergunta geraPergunta0() {
         if (perguntascat0.size() > 0) {
@@ -103,6 +146,65 @@ public class GerenciadorPerguntas {
             default: return null;
 
         }
+    }
+
+    public int retornaRespostaErrada(int respCerta){
+        int r=respCerta;
+
+        while(r==respCerta){
+            r = random.nextInt(3);
+        }
+
+        return r;
+    }
+
+    public Pergunta getPerguntaNeutra(){
+        return perguntaNeutra;
+    }
+
+    public boolean restaPerguntas0(){
+        for(int i=0;i<perguntascat0.size();i++){
+            if(!perguntascat0.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas1(){
+        for(int i=0;i<perguntascat1.size();i++){
+            if(!perguntascat1.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas2(){
+        for(int i=0;i<perguntascat2.size();i++){
+            if(!perguntascat2.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas3(){
+        for(int i=0;i<perguntascat3.size();i++){
+            if(!perguntascat3.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas4(){
+        for(int i=0;i<perguntascat4.size();i++){
+            if(!perguntascat4.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

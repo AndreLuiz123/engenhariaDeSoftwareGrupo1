@@ -26,13 +26,16 @@ public class Roleta extends Sprite {
     public Body b2body;
     public BodyDef bdef;
 
+    public Texture texturaDaRoleta;
 
-    public Roleta(World world){
+    public Roleta(World world) {
 
 
         this.world = world;
 
         defineRoleta();
+
+        texturaDaRoleta = new Texture("jogarOpcao.png");
 
     }
 
@@ -47,11 +50,9 @@ public class Roleta extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(0.3f);
 
-
         fdef.shape = shape;
 
         b2body.createFixture(fdef);
-
 
     }
 
@@ -62,6 +63,10 @@ public class Roleta extends Sprite {
 
     }
 
+    public float getAngularPosition(){
+
+        return b2body.getAngle();
+    }
 
 
 }
