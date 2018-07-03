@@ -1,112 +1,134 @@
 package com.mygdx.game.Screens;
 
+import com.mygdx.game.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.Hud.Hud;
-import com.mygdx.game.MyGdxGame;
 
-/**
- * Created by Andre Luiz on 09/05/2018.
- */
 
 public class Menu implements Screen {
 
-    private MyGdxGame game;
-    private Hud hud;
-    private OrthographicCamera gameCam;
-    private Viewport gamePort;
-    private Texture cenario;
+    Game game;
+    Skin skin;
+    Stage stage = new Stage();
+    Viewport viewport;
+    boolean trocaFase = false;
 
-
-    public Menu(MyGdxGame game){
-
+    public Menu(Game game){
         this.game = game;
+        viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        skin = new Skin(Gdx.files.internal("glassy/skin/glassy-ui.json"));
+        Label nome = new Label("Show dos Milhões",skin,"big");
+        nome.setSize(300,Gdx.graphics.getHeight()/2);
+        nome.setPosition(0,0);
+        Button jogar = new TextButton("Jogar",skin,"small");
+        jogar.setSize(200,100);
+        jogar.setPosition(((Gdx.graphics.getWidth()/2)-jogar.getWidth()/2),(Gdx.graphics.getHeight()/2));
+        jogar.addListener(new InputListener(){
 
-        this.gameCam = new OrthographicCamera();
-        this.gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, gameCam);
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                trocaFase = true;
+                return super.touchDown(event, x, y, pointer, button);
+            }
 
-        this.hud = new Hud(game.batch);
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
 
-        this.cenario = new Texture("BackGroundMenu.png");
+        Button comoJogar = new TextButton("Como jogar",skin,"small");
+        comoJogar.setSize(200,100);
+        comoJogar.setPosition(((Gdx.graphics.getWidth()/2)-comoJogar.getWidth()/2),((Gdx.graphics.getHeight()/2)-comoJogar.getHeight()-50));
+        comoJogar.addListener(new InputListener(){
 
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+        Button creditos = new TextButton("Creditos",skin,"small");
+        creditos.setSize(200,100);
+        creditos.setPosition(((Gdx.graphics.getWidth()/2)-creditos.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-200));
+        creditos.addListener(new InputListener(){
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+        Button sair = new TextButton("Sair",skin,"small");
+        sair.setSize(200,100);
+        sair.setPosition(((Gdx.graphics.getWidth()/2)-sair.getWidth()/2),((Gdx.graphics.getHeight()/2)-creditos.getHeight()-350));
+        sair.addListener(new InputListener(){
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return super.touchDown(event, x, y, pointer, button);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+            }
+        });
+
+        stage.addActor(nome);
+        stage.addActor(jogar);
+        stage.addActor(comoJogar);
+        stage.addActor(creditos);
+        stage.addActor(sair);
 
     }
 
-
+    public void update(float delta) {
+        if(trocaFase == true) {
+            game.setScreen(new Play_Screen(game));
+            dispose();
+            trocaFase=false;
+        }
+    }
 
     @Override
     public void show() {
-
-    }
-
-    public void handleInput(float dt){
-
-
-        if(Gdx.input.justTouched() && Gdx.input.getX()>(float)0.4*MyGdxGame.PPM && Gdx.input.getX()<((float)0.3*MyGdxGame.PPM + 180)
-             && Gdx.input.getY()>(float)1.7*MyGdxGame.PPM  && Gdx.input.getY()<(float)2.5*MyGdxGame.PPM
-                ){
-            game.setScreen(new SelecaoDePersonagemModo(game));
-        }
-
-        if(Gdx.input.justTouched() && Gdx.input.getX()>(float)0.4*MyGdxGame.PPM && Gdx.input.getX()<((float)0.3*MyGdxGame.PPM + 180)
-                && Gdx.input.getY()>(float)3.3*MyGdxGame.PPM  && Gdx.input.getY()<(float)4.2*MyGdxGame.PPM
-                ){
-            System.out.println("Deu certo");
-        }
-
-        if(Gdx.input.justTouched() && Gdx.input.getX()>(float)4.3*MyGdxGame.PPM && Gdx.input.getX()<(float)4.3*MyGdxGame.PPM +170
-                && Gdx.input.getY()>(float)2.5*MyGdxGame.PPM  && Gdx.input.getY()<(float)2.5*MyGdxGame.PPM + 75
-
-                )
-        {
-            System.out.println("Deu certo");
-        }
-
-    }
-
-
-    public void update(float dt){
-
-
-        handleInput(dt);
-
-        hud.opcoesMenu();
-
-
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
     public void render(float delta) {
-
         update(delta);
-
         Gdx.gl.glClearColor(0,0,0,0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-
-
-
-        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
-        hud.stage.draw();
-
-        game.batch.setProjectionMatrix(gameCam.combined);
-
-
-
+        stage.act();
+        stage.draw();
     }
 
     @Override
     public void resize(int width, int height) {
-        gamePort.update(width,height);
-
+        stage.getViewport().update(width,height);
     }
-
 
     @Override
     public void pause() {
@@ -125,6 +147,7 @@ public class Menu implements Screen {
 
     @Override
     public void dispose() {
-
+        skin.dispose();
+        stage.dispose();
     }
 }

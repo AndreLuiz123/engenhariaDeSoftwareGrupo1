@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+=======
+        "outputFile": "C:\\Users\\Andre Luiz\\Desktop\\Nova pasta (3)\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+>>>>>>> 8f15754b31aeab532da9a194f56d5c4b12ec3492
         "map": [
             {
                 "to": {
@@ -11,7 +15,56 @@
                     "endOffset": 99
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\strings.xml",
+=======
+                    "file": "C:\\Users\\Andre Luiz\\Desktop\\Nova pasta (3)\\android\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 48,
+                        "endOffset": 100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 104,
+                    "endLine": 10,
+                    "endColumn": 12,
+                    "endOffset": 562
+                },
+                "from": {
+                    "file": "C:\\Users\\Andre Luiz\\Desktop\\Nova pasta (3)\\android\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endLine": 9,
+                        "endColumn": 12,
+                        "endOffset": 475
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Andre Luiz\\Desktop\\EngenhariaDeSoftwareUmNovoComeco\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 48,
+                    "endOffset": 99
+                },
+                "from": {
+                    "file": "C:\\Users\\Andre Luiz\\Desktop\\EngenhariaDeSoftwareUmNovoComeco\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\strings.xml",
+>>>>>>> 8f15754b31aeab532da9a194f56d5c4b12ec3492
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -31,7 +84,11 @@
                     "endOffset": 562
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\styles.xml",
+=======
+                    "file": "C:\\Users\\Andre Luiz\\Desktop\\EngenhariaDeSoftwareUmNovoComeco\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\styles.xml",
+>>>>>>> 8f15754b31aeab532da9a194f56d5c4b12ec3492
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
