@@ -110,16 +110,21 @@ public class ModoDescubraPalavra implements Screen {
         perdeuTudo = new Label("PERDEU!", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
 
-        stage.addActor(giraRoleta);
+        stage.addActor(voltarMenu);
 
     }
     @Override
     public void show() {
-
+      Gdx.input.setInputProcessor(stage);
     }
 
     @Override
     public void render(float delta) {
+
+        if(menu){
+
+        }
+
 
     }
 

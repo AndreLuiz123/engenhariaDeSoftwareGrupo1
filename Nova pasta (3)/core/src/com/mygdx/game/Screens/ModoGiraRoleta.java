@@ -163,6 +163,7 @@ public class ModoGiraRoleta implements Screen {
 
         if(menu) {
             game.setScreen(new MenuScreen(game));
+            atlas.dispose();
             dispose();
             menu=false;
         }

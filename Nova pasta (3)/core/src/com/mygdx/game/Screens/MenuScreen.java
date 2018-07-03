@@ -31,6 +31,8 @@ public class MenuScreen implements Screen {
 
     boolean ajuda = false;
 
+    Sound sound = Gdx.audio.newSound(Gdx.files.internal("musica/force.mp3"));
+
 
 
     public MenuScreen(MyGdxGame game){
@@ -38,6 +40,8 @@ public class MenuScreen implements Screen {
 
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+        sound.play(1.0f);
+               sound.setLooping(500,true);
         stageMenu();
     }
 

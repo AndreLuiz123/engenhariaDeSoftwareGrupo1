@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Screens.MenuScreen;
+import com.mygdx.game.Screens.ModoDescubraPalavra;
 import com.mygdx.game.Screens.ModoGiraRoleta;
 
 public class MyGdxGame extends Game {
