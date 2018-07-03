@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Pichau\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.9.6\47d1e9b890e364ec28f128e9bb3b9a12a94c164\gdx-1.9.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="047d1e9b890e364ec28f128e9bb3b9a12a94c164">
+        <dex dex="C:\Users\Pichau\Downloads\engSoftware\engenhariaDeSoftwareGrupo1\Nova pasta (3)\android\build\intermediates\pre-dexed\debug\gdx-1.9.6_e6cf5ea413626324073296aba692e73ca482d07a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Pichau\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.9.6\c249ef4060a4fada952f278455c8f7b9cba3c18a\gdx-box2d-1.9.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c249ef4060a4fada952f278455c8f7b9cba3c18a">
+        <dex dex="C:\Users\Pichau\Downloads\engSoftware\engenhariaDeSoftwareGrupo1\Nova pasta (3)\android\build\intermediates\pre-dexed\debug\gdx-box2d-1.9.6_d1370c80952712557beb698ddef7f3f343ea18c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Pichau\Downloads\engSoftware\engenhariaDeSoftwareGrupo1\Nova pasta (3)\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="479f11235f7eb5781b5059092c7d90dd26d80b98">
+        <dex dex="C:\Users\Pichau\Downloads\engSoftware\engenhariaDeSoftwareGrupo1\Nova pasta (3)\android\build\intermediates\pre-dexed\debug\core-1.0_8eae9e20d0f780e8b9c0b691ac33cc58eb05cc2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Pichau\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.9.6\57c2831c870743712b808384187ea856e541878f\gdx-backend-android-1.9.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="57c2831c870743712b808384187ea856e541878f">
+        <dex dex="C:\Users\Pichau\Downloads\engSoftware\engenhariaDeSoftwareGrupo1\Nova pasta (3)\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.9.6_3f30a3cdf1a5b7a9728dc3e7b72f3d07f2ef86fa.jar" />
+    </item>
+
+</items>

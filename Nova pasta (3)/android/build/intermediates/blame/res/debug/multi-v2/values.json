@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "19",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "484"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "104",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "562"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Pichau\\Downloads\\engSoftware\\engenhariaDeSoftwareGrupo1\\Nova pasta (3)\\android\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "59",
+                        "endColumns": "48",
+                        "endOffsets": "103"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

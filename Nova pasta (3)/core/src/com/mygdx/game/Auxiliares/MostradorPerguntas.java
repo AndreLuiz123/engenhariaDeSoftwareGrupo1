@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.particles.influencers.ColorInfluencer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -62,7 +63,11 @@ public class MostradorPerguntas extends Sprite {
     public boolean respostaCerta;
     public int cat;
 
+
+    public boolean podeGirarRoleta;
     public boolean trocando;
+    public TextureAtlas atlas;
+
 
 
     public MostradorPerguntas(World world, Stage stage) {
@@ -73,6 +78,7 @@ public class MostradorPerguntas extends Sprite {
         this.stage = stage;
 
         textura = new Texture("jogarOpcao.png");
+        atlas = new TextureAtlas("personagensES.atlas");
 
         alternativa = "";
         respostaCerta = false;
@@ -120,11 +126,13 @@ public class MostradorPerguntas extends Sprite {
 
         if (trocando) {
             if (roleta.b2body.getAngularVelocity() == 0) {
+                podeGirarRoleta = false;
                 if (roleta.getAngularPosition() > 0 && roleta.getAngularPosition() <= 90) {
                     perg = gerenciadorPerguntas.geraPergunta0();
                     mudaPergunta(perg.getTexto(), perg.getAlta(), perg.getAltb(), perg.getAltc(), perg.getAltd());
 
                 } else {
+
                     if (roleta.getAngularPosition() > 90 && roleta.getAngularPosition() <= 180) {
                         perg = gerenciadorPerguntas.geraPergunta1();
                         mudaPergunta(perg.getTexto(), perg.getAlta(), perg.getAltb(), perg.getAltc(), perg.getAltd());
@@ -145,6 +153,7 @@ public class MostradorPerguntas extends Sprite {
             } else {
                 perg = gerenciadorPerguntas.getPerguntaNeutra();
                 mudaPergunta(perg.getTexto(), perg.getAlta(), perg.getAltb(), perg.getAltc(), perg.getAltd());
+                alternativa="";
             }
 
         }
@@ -174,7 +183,7 @@ public class MostradorPerguntas extends Sprite {
     }
 
 
-    public void criaBotao() {
+    public void criaBotao(final Roleta roleta) {
 
 
         pergunta.setPosition(0, ((Gdx.graphics.getHeight() / 2)) + ((Gdx.graphics.getHeight() / 3)));
@@ -188,8 +197,11 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resposta = 0;
-                alternativa = "A";
+                if(roleta.b2body.getAngularVelocity()==0){
+                    resposta = 0;
+                    alternativa = "A";
+                }
+
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -207,8 +219,10 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resposta = 1;
-                alternativa = "B";
+                if(roleta.b2body.getAngularVelocity()==0){
+                    resposta = 1;
+                    alternativa = "B";
+                }
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -226,8 +240,10 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resposta = 2;
-                alternativa = "C";
+                if(roleta.b2body.getAngularVelocity()==0){
+                    resposta = 2;
+                    alternativa = "C";
+                }
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -245,8 +261,10 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                resposta = 3;
-                alternativa = "D";
+                if(roleta.b2body.getAngularVelocity()==0){
+                    resposta = 3;
+                    alternativa = "D";
+                }
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -264,8 +282,11 @@ public class MostradorPerguntas extends Sprite {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if(alternativa!=""){
+                    podeGirarRoleta = true;
+                    respostaCerta = true;
+                }
 
-                respostaCerta = true;
                 return super.touchDown(event, x, y, pointer, button);
             }
 
