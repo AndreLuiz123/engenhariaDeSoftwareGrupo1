@@ -143,7 +143,7 @@ public class MenuScreen implements Screen {
             stageMenu();
             menu = false;
         }
-    
+
         if(ajuda){
             stage.clear();
             mostrarAjuda();
