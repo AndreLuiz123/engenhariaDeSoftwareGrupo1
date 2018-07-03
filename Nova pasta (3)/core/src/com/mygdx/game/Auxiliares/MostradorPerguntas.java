@@ -87,11 +87,11 @@ public class MostradorPerguntas extends Sprite {
 
         cat = 0;
         perg = gerenciadorPerguntas.geraPergunta(cat);
-        while(perg.isFeita() && gerenciadorPerguntas.restaPerguntas0()){
+        while(perg.isFeita() && gerenciadorPerguntas.restaPergunta(cat)){
             perg = gerenciadorPerguntas.geraPergunta(cat);
         }
 
-        if(perg == null){
+        if(perg == null || perg.isFeita()){
             perg = gerenciadorPerguntas.getPerguntaNeutra();
         }
 
@@ -128,7 +128,16 @@ public class MostradorPerguntas extends Sprite {
             if (roleta.b2body.getAngularVelocity() == 0) {
                 podeGirarRoleta = false;
                 if (roleta.getAngularPosition() > 0 && roleta.getAngularPosition() <= 90) {
-                    perg = gerenciadorPerguntas.geraPergunta0();
+                    perg = gerenciadorPerguntas.geraPergunta(cat);
+                    while(perg.isFeita() && gerenciadorPerguntas.restaPergunta(cat)){
+                        perg = gerenciadorPerguntas.geraPergunta(cat);
+                    }
+
+                    if(perg == null || perg.isFeita()){
+                        perg = gerenciadorPerguntas.getPerguntaNeutra();
+                    }
+                    perg.marcarFeita();
+
                     mudaPergunta(perg.getTexto(), perg.getAlta(), perg.getAltb(), perg.getAltc(), perg.getAltd());
 
                 } else {
