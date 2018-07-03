@@ -60,6 +60,7 @@ public class MostradorPerguntas extends Sprite {
     public String alternativa;
     public int pontuacaoObtida;
     public boolean respostaCerta;
+    public int cat;
 
     public boolean trocando;
 
@@ -78,11 +79,12 @@ public class MostradorPerguntas extends Sprite {
 
         gerenciadorPerguntas = new GerenciadorPerguntas();
 
-        perg = gerenciadorPerguntas.geraPergunta0();
+        cat = 0;
+        perg = gerenciadorPerguntas.geraPergunta(cat);
         while(perg.isFeita() && gerenciadorPerguntas.restaPerguntas0()){
-            perg = gerenciadorPerguntas.geraPergunta0();
+            perg = gerenciadorPerguntas.geraPergunta(cat);
         }
-        
+
         if(perg == null){
             perg = gerenciadorPerguntas.getPerguntaNeutra();
         }

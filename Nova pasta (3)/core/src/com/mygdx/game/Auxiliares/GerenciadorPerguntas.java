@@ -52,6 +52,44 @@ public class GerenciadorPerguntas {
                 "Diagrama de atividades", "Diagrama de caso de uso", "Diagrama de sequencia", 2));
     }
 
+    public Pergunta geraPergunta(int cat){
+        switch (cat){
+            case 0:
+                if (perguntascat0.size() > 0) {
+                    al = random.nextInt(perguntascat0.size());
+                    return perguntascat0.get(al);
+                }
+                break;
+            case 1:
+                if (perguntascat1.size() > 0) {
+                    al = random.nextInt(perguntascat1.size());
+                    return perguntascat1.get(al);
+                }
+                break;
+            case 2:
+                if (perguntascat2.size() > 0) {
+                    al = random.nextInt(perguntascat2.size());
+                    return perguntascat2.get(al);
+                }
+                break;
+            case 3:
+                if (perguntascat3.size() > 0) {
+                    al = random.nextInt(perguntascat3.size());
+                    return perguntascat3.get(al);
+                }
+                break;
+            case 4:
+                if (perguntascat2.size() > 0) {
+                    al = random.nextInt(perguntascat2.size());
+                    return perguntascat2.get(al);
+                }
+                break;
+                default: break;
+
+
+        }
+        return perguntaNeutra;
+    }
 
     public Pergunta geraPergunta0() {
         if (perguntascat0.size() > 0) {
