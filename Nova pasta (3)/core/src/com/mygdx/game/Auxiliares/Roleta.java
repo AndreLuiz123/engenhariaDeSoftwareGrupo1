@@ -29,7 +29,7 @@ public class Roleta extends Sprite {
     public Body b2body;
     public BodyDef bdef;
 
-    public Texture texturaDaRoleta;
+    public TextureRegion texturaDaRoleta;
     private Animation personagem, paradoCostas, paradoLado;
     private int S;
 
@@ -37,24 +37,14 @@ public class Roleta extends Sprite {
 
         super(screen.getAtlas().findRegion("personagensEngSoft"));
 
-        S=64;
+        S=370;
         this.world = world;
 
         defineRoleta();
 
-  /*      texturaDaRoleta = new Texture("jogarOpcao.png");
+        texturaDaRoleta = new TextureRegion(getTexture(), 20, S, 350, 350);
+        setBounds(b2body.getPosition().x+3*texturaDaRoleta.getRegionWidth()/4,b2body.getPosition().y+texturaDaRoleta.getRegionHeight()/8,300,300);
 
-
-
-        Array<TextureRegion> frames = new Array<TextureRegion>();
-
-        for (int i = 0; i < 9; i++) {
-            frames.add(new TextureRegion(getTexture(), S * i, S*10, S, S));
-
-        }
-        personagem = new Animation(0.1f, frames);
-        frames.clear();
-*/
     }
 
     public void defineRoleta() {
@@ -84,6 +74,10 @@ public class Roleta extends Sprite {
     public float getAngularPosition(){
 
         return b2body.getAngle();
+    }
+
+    public void update(){
+        setRegion(texturaDaRoleta);
     }
 
 

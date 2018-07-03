@@ -170,7 +170,9 @@ public class ModoGiraRoleta implements Screen {
         System.out.println(mostradorPerguntas.alternativa);
 
     personagem.update(delta);
-        personagem.rotate(roleta.b2body.getAngularVelocity() );
+    roleta.update();
+   // personagem.rotate(roleta.b2body.getAngularVelocity() );
+       // roleta.rotate(roleta.b2body.getAngularVelocity());
 
     }
 
@@ -185,9 +187,9 @@ public class ModoGiraRoleta implements Screen {
 
             game.batch.begin();
             personagem.draw(game.batch);
+            roleta.draw(game.batch);
             game.batch.end();
             b2dr.render(world, gameCam.combined);
-
             stage.act();
             stage.draw();
         }else{
