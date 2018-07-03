@@ -195,9 +195,9 @@ public class MenuScreen implements Screen {
 
     public void mostrarCreditos(){
 
-        Label texto = new Label("Lorem ipsum dolor sit amet, consectetur adipisicing elit," +
-                " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad " +
-                "minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " +
+        Label texto = new Label("Modo Gira Roleta:" +
+                " No modo gira a roleta o objetivo é acertar o maior numero de questões e chegar aos 15 pontos" +
+                "Se você acertar a pergunta garante 3 pontos, se errar você perde 2 pontos, usar alguma das ajudas te fazer perder 1 ponto" +
                 "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit " +
                 "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " +
                 "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",skin,"small");
