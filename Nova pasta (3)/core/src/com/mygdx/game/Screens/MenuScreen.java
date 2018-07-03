@@ -3,10 +3,9 @@ package com.mygdx.game.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
-<<<<<<< HEAD
+
 import com.badlogic.gdx.graphics.Color;
-=======
->>>>>>> Matheus
+
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -31,7 +30,7 @@ public class MenuScreen implements Screen {
     boolean trocaFase = false;
     boolean credits = false;
     boolean menu = false;
-    Sound sound = Gdx.audio.newSound(Gdx.files.internal("musica/force.mp3"));
+
 
     boolean ajuda = false;
 
@@ -41,12 +40,10 @@ public class MenuScreen implements Screen {
 
     public MenuScreen(MyGdxGame game){
         this.game = game;
-<<<<<<< HEAD
 
-=======
         sound.play(1.0f);
         sound.setLooping(500,true);
->>>>>>> Matheus
+
         viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         sound.play(1.0f);
