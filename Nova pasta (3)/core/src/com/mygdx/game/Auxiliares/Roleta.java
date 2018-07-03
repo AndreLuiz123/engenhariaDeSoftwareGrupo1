@@ -16,9 +16,12 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.Screens.PlayScreen;
+<<<<<<< HEAD
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 
+=======
+>>>>>>> 00d01c7f7a0d7a7a2fa95c99c609600a19f52cb0
 
 /**
  * Created by Andre Luiz on 11/06/2018.
@@ -26,6 +29,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Roleta extends Sprite {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00d01c7f7a0d7a7a2fa95c99c609600a19f52cb0
 
     public World world;
     public Body b2body;
@@ -75,4 +82,8 @@ public class Roleta extends Sprite {
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00d01c7f7a0d7a7a2fa95c99c609600a19f52cb0
 }
