@@ -230,7 +230,7 @@ public class MenuScreen implements Screen {
         Label texto = new Label("   1. Selecione um personagem;\n" +
                 "2. Selecione um Modo; \n" +
                 "2.1 Gira a Roleta: Selecione as respostas corretas, e confirme usando o botao.\n" +
-                "-- Voce começa com 5 pontos\n" +
+                "-- Voce comeca com 5 pontos\n" +
                 "-- Gire a Roleta para selecionar a categoria da proxima pergunta. \n" +
                 "-- Ganhe 1 ponto por resposta correta e perca 1 por resposta errada.  \n" +
                 "-- Se nao souber a resposta, pode pular a pergunta (so pode pular 2 vezes). \n" +
