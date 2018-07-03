@@ -349,7 +349,7 @@ public class MostradorPerguntas extends Sprite {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (aux50 <= 3 && aux50perg ==0) {
-                    coloreRespostaErrada();
+                    coloreRespostaErrada(perg);
                 }
                 aux50++;
                 aux50perg = 1;
@@ -425,13 +425,13 @@ public class MostradorPerguntas extends Sprite {
         }
     }
 
-    public void coloreRespostaErrada(){
+    public void coloreRespostaErrada(Pergunta perg){
 
         int respostaC;
         int respD;
 
-        respostaC = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
-        respD = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
+        respostaC = gerenciadorPerguntas.retornaRespostaErrada(this.perg.getAltcorreta());
+        respD = gerenciadorPerguntas.retornaRespostaErrada(this.perg.getAltcorreta());
         while(respostaC == respD){
             respD = gerenciadorPerguntas.retornaRespostaErrada(perg.getAltcorreta());
         }
