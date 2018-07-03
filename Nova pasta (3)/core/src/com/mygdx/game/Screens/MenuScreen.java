@@ -244,14 +244,15 @@ public class MenuScreen implements Screen {
     }
 
     public void mostrarAjuda(){
-        Label texto = new Label("   Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore \n" +
-                "magna aliqua. Ut enim ad minim veniam, quis nostrud \n" +
-                "exercitation ullamco laboris nisi ut aliquip ex ea \n" +
-                "commodo consequat. Duis aute irure dolor in reprehenderit \n" +
-                "in voluptate velit esse cillum dolore eu fugiat nulla \n" +
-                "pariatur. Excepteur sint occaecat cupidatat non proident,\n" +
-                "sunt in culpa qui officia deserunt mollit anim id est laborum.",skin,"big");
+        Label texto = new Label("   1. Selecione um personagem;\n" +
+                "2. Selecione um Modo; \n" +
+                "2.1 Gira a Roleta: Selecione as respostas corretas, e confirme usando o botao.\n" +
+                "-- Voce começa com 5 pontos\n" +
+                "-- Gire a Roleta para selecionar a categoria da proxima pergunta. \n" +
+                "-- Ganhe 1 ponto por resposta correta e perca 3 por resposta errada.  \n" +
+                "-- Se nao souber a resposta, pode pular a pergunta (so pode pular 2 vezes. \n" +
+                "-- Peca ajuda a amigos, apagando duas respostas erradas. So pode usar 3 vezes durante o jogo. \n" +
+                "-- Atinja 15 pontos para ganhar; Se chegar a 0, voce perde.",skin,"big");
         texto.setFontScale(0.45f);
         texto.setSize(300,Gdx.graphics.getHeight()/2);
         texto.setPosition(50,Gdx.graphics.getHeight()/2);
