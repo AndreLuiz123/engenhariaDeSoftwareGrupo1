@@ -52,6 +52,44 @@ public class GerenciadorPerguntas {
                 "Diagrama de atividades", "Diagrama de caso de uso", "Diagrama de sequencia", 2));
     }
 
+    public Pergunta geraPergunta(int cat){
+        switch (cat){
+            case 0:
+                if (perguntascat0.size() > 0) {
+                    al = random.nextInt(perguntascat0.size());
+                    return perguntascat0.get(al);
+                }
+                break;
+            case 1:
+                if (perguntascat1.size() > 0) {
+                    al = random.nextInt(perguntascat1.size());
+                    return perguntascat1.get(al);
+                }
+                break;
+            case 2:
+                if (perguntascat2.size() > 0) {
+                    al = random.nextInt(perguntascat2.size());
+                    return perguntascat2.get(al);
+                }
+                break;
+            case 3:
+                if (perguntascat3.size() > 0) {
+                    al = random.nextInt(perguntascat3.size());
+                    return perguntascat3.get(al);
+                }
+                break;
+            case 4:
+                if (perguntascat2.size() > 0) {
+                    al = random.nextInt(perguntascat2.size());
+                    return perguntascat2.get(al);
+                }
+                break;
+                default: break;
+
+
+        }
+        return perguntaNeutra;
+    }
 
     public Pergunta geraPergunta0() {
         if (perguntascat0.size() > 0) {
@@ -122,6 +160,51 @@ public class GerenciadorPerguntas {
 
     public Pergunta getPerguntaNeutra(){
         return perguntaNeutra;
+    }
+
+    public boolean restaPerguntas0(){
+        for(int i=0;i<perguntascat0.size();i++){
+            if(!perguntascat0.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas1(){
+        for(int i=0;i<perguntascat1.size();i++){
+            if(!perguntascat1.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas2(){
+        for(int i=0;i<perguntascat2.size();i++){
+            if(!perguntascat2.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas3(){
+        for(int i=0;i<perguntascat3.size();i++){
+            if(!perguntascat3.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean restaPerguntas4(){
+        for(int i=0;i<perguntascat4.size();i++){
+            if(!perguntascat4.get(i).isFeita()){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

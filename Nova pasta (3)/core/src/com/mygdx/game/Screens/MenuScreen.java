@@ -19,7 +19,11 @@ import com.mygdx.game.MyGdxGame;
 
 import java.util.logging.Handler;
 
+<<<<<<< HEAD
 
+=======
+//teste
+>>>>>>> 5966ed96409f9a7d96de243a7b325b2b36b32c58
 public class MenuScreen implements Screen {
 
     MyGdxGame game;
