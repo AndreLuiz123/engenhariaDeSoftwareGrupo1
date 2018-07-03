@@ -438,38 +438,38 @@ public class MostradorPerguntas extends Sprite {
 
         switch (respostaC) {
             case 0:
-                optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optA.setText("");
                 blockq1 = 0;
                 break;
             case 1:
-                optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optB.setText("");
                 blockq1 = 1;
                 break;
             case 2:
-                optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optC.setText("");
                 blockq1 = 2;
                 break;
             case 3:
-                optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optD.setText("");
                 blockq1 = 3;
                 break;
         }
 
         switch (respD) {
             case 0:
-                optA.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optA.setText("");
                 blockq2 = 0;
                 break;
             case 1:
-                optB.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optB.setText("");
                 blockq2 = 1;
                 break;
             case 2:
-                optC.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optC.setText("");
                 blockq2 = 2;
                 break;
             case 3:
-                optD.setStyle(new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+                optD.setText("");
                 blockq2 = 3;
                 break;
         }
